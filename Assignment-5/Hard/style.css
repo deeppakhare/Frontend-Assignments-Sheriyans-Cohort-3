@@ -127,9 +127,10 @@ nav .logo {
 .container {
     height: 100%;
     width: 110%;
-    display: inline-block;
+    display: flex;
+    align-items: center;
     animation-name: scroll;
-    animation-duration: 10s;
+    animation-duration: 20s;
     animation-iteration-count: infinite;
     animation-timing-function: linear;
 }
@@ -144,7 +145,7 @@ nav .logo {
 
 @keyframes scroll {
     from {
-        transform: translateX(0%);
+        transform: translateX(0);
     }
 
     to {
@@ -507,14 +508,13 @@ button:hover {
 .main-box2{
     height: 100vh;
     margin-top: 40px;
-    margin-bottom: 40px;
+    margin-bottom: 90px;
 }
 
 
 .main-box2{
     height: 65vh;
     width: 100%;
-    margin-bottom: 50px;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -590,13 +590,32 @@ button:hover {
     display: flex;
     align-items: center;
     justify-content: space-between;
+    position: relative;
 }
 
-.main-common2::after{
+.main-common1::after{
+     content: ""; 
     position: absolute;
-    height: 100%;
+    bottom: 0;
+    left: 0;
     width: 100%;
-    background-color: aqua;
+    height: 25%;
+    letter-spacing: 20px;
+    background-color: #F2F2F2;
+    opacity: 0.7;
+    display: flex;
+    align-items: center;
+    justify-content: end;
+    transform: translateY(101%); 
+    transition: transform 0.3s ease; 
+    pointer-events: none; 
+}
+.main-common1:hover::after {
+    content: "\f23a \ee66 \eaba";
+    transform: translateY(0); 
+   font-family: "remixicon" !important;
+    font-size: 30px;
+    color: black;
 }
 
 .main-common2 h3 {
@@ -620,45 +639,292 @@ button:hover {
     color: white;
 }
 
+.part1{
+    border-bottom: 1px solid rgb(210, 197, 197);
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-footer {
-    height: 10vh;
+}
+.artical2{
+    height: 80vh;
+    width: 100%;
+    margin-bottom: 80px;
+}
+.artical2 .artical2-1{
+    height: 100%;
     width: 100%;
 }
 
-.footer {
+.artical2-1 .part1{
+    height: 50%;
+    width: 100%;
+    display: flex;
+}
+.logo1{
+    height: 100%;
+    width: 50%;
+    padding-left:90px;
+    padding-top:50px;
+}
+.logo1 img{
+    height: 15%;
+}
+.logo1 img{
+    height: 15%;
+}
+
+
+.para{
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content:flex-start;
+    gap: 50px;
+    padding-top: 40px;
+}
+
+.para h3{
+    font-weight: 500;
+}
+.para h1{
+    font-size: 50px;
+    font-weight: 500;
+}
+.para2{
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    /* justify-content:flex-start; */
+    gap: 50px;
+    padding-top: 40px;
+}
+
+.para2 h3{
+    font-weight: 500;
+}
+.para2 h1{
+    font-size: 50px;
+    font-weight: 500;
+}
+
+.contact{
+    height: 70vh;
+    width: 100%;
+    display: flex;
+    gap: 150px;
+    padding: 100px;
+    margin-bottom: 60px;
+}
+
+.contact p{
+    font-size: larger;
+}
+
+.contact2{
     height: 100%;
     width: 100%;
     display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: space-between;
-    border-top: 1px solid oklch(91.512% 0.01089 286.048);
+    flex-direction: column;
+    gap: 30px;
 }
 
-.footer .privacy {
+.contact2 h1{
+    font-size: 90px;
+    font-weight: 500;
+}
+.contact2 h3{
+    font-size: 40px;
+    font-weight: 500;
+}
+
+.contact2 button{
+    padding: 1.5rem;
+    width: 20%;
+    background-color: black;
+    color: white;
+    font-family: serif;
+    font-size: 1.3rem;
+    border-style: none;
+    border-radius: 30px;
+    margin-bottom: 25px;
+    margin-right: 80px;
+}
+
+
+.blog {
+    height: 100vh;
+    width: 100%;
+    margin-bottom: 30px;
+
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: 0.1fr 0.1fr 0.9fr 0.1fr;
+
+    gap: 50px;
+    grid-template-areas:
+        "first first first first"
+        "second second second second"
+        "third fourth seventh eight"
+        "fifth sixth ninth tenth"
+    ;
+}
+
+.first {
+    grid-area: first;
     display: flex;
-    gap: 30px;
+    align-items: center;
+    justify-content: start;
+    border-bottom: 1px solid oklch(91.512% 0.01089 286.048);
+}
+
+.first h4 {
+    margin-top: 40px;
+    font-weight: 500;
+}
+
+.third {
+    grid-area: third;
+}
+
+.fourth {
+    grid-area: fourth;
+}
+
+.fifth {
+    grid-area: fifth;
+}
+
+.sixth {
+    grid-area: sixth;
+}
+
+.seventh {
+    grid-area: seventh;
+}
+
+.eight {
+    grid-area: eight;
+}
+
+.ninth {
+    grid-area: ninth;
+}
+
+.tenth {
+    grid-area: tenth;
+}
+.data {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+.data h3{
+    font-size: 2rem;
+    font-weight: 500;
+}
+.data p{
+    font-size: 1.2rem;
+    font-weight: 500;
+    color: rgb(95, 88, 88);
+}
+
+.img {
+    overflow: hidden;
+    object-fit: cover;
+}
+
+.img img:hover {
+    width: 110%;
+    height: 110%;
+}
+
+.img img {
+
+    height: 100%;
+    width: 100%;
+    transition: all cubic-bezier(0.19, 1, 0.22, 1) 2s;
+    object-position: center;
+}
+
+footer{
+    min-height: 50vh;
+}
+.main-footer{
+    display: flex;
+    gap: 20px;
+    padding-bottom: 100px;
+    border-bottom: 1px solid #dfdfdf;
+}
+#box1{
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    padding-top: 45px;
+}
+#box1 i{
+    font-size: 20px;
+    padding: 10px;
+    margin-right: 5px;
+    border-radius: 50%;
+    background-color: #f0f7f5;
+
+}
+
+.box{
+    height: 350px;
+    padding: 10px;
+    width: 25%;
+}
+.box .heading2{
+    padding-bottom: 10px;
+    border-bottom: 1px solid #dfdfdf;
+}
+.box .heading2 h2{
+    font-weight: 400;
+    font-size: 20px;
+}
+.box .links{
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    padding: 20px 0;
+}
+.links button{
+    font-size: 15px;
+    width: fit-content;
+    padding: 15px 25px;
+    font-family: serif;
+    border: none;
+    border-radius: 25px;
+    background-color: black;
+    color: white;
+}
+.box .links a{
+    text-decoration: none;
+    color: black;
+    font-weight: 300;
+    font-size: 15px;
+}
+
+
+
+.copyrights{
+    padding: 20px 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.copyrights .left p{
+    color: #52535c;
+    font-size: 14px;
+}
+.copyrights .left p span{
+    color: black;
+    text-decoration: underline;
+}
+.copyrights  .right a{
+    font-size: 14px;
+    color: #52535c;
+    text-decoration: none;
+    margin-left: 20px;
 }
