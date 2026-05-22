@@ -203,7 +203,6 @@ body {
     font-size:25vh;
 }
 .center-left{
-    background-color: red;
     grid-area: center-left;
     border-radius: 30px;
 }
@@ -220,29 +219,124 @@ body {
     flex-direction: column;
 }
 .center-right .first{
+    position: relative;
     height: 50%;
     
-}
-.center-right .div1{
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
+    font-size: x-large;
+}
+.first .arrow2{
+    height: 3vh;
+    width: 2vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position:absolute;
+    right: 5%;
+    top: 10%;
+    rotate: 45deg;
+    font-size: 5vh;
+    color: black;
+}
+.center-right .div1{
     background-color: #ADD8D8;
      border-top-left-radius: 30px;
     border-top-right-radius: 30px;
 }
 .center-right .div2{
+    color: white;
     background-color: #8E6FBF;
     border-bottom-left-radius: 30px;
     border-bottom-right-radius: 30px;
 }
 .bottom-left{
-    background-color:yellow;
+    background-color:#595959;
     grid-area: bottom-left;
+    border-radius: 30px;
+   display: flex;
+     flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: 6rem;
+    position: relative;
+    color: white;
+}
+.apple{
+     display: flex;
+     flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.apple h1{
+    font-size: 2rem;
+}
+
+.bottom-left .arrow2{
+    color: white;
+    height: 3vh;
+    width: 2vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position:absolute;
+    right: 5%;
+    top: 10%;
+    rotate: 45deg;
+    font-size: 5vh;
+}
+
+.bottom-right{
+    background-color: black;
+    grid-area: bottom-right;
+    border-radius: 30px;
+    position: relative;
+    display: flex;
 
 }
-.bottom-right{
-    background-color: pink;
-    grid-area: bottom-right;
 
+.img{
+    height: 70%;
+    width: 30%;
+margin-top: 30px;
+margin-left: 60px;
+}
+
+.img img{
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+
+.awards {
+    height: 100%;
+    width: 50%;
+    position: absolute;
+    right: 0;
+    border-radius: 30px;
+    background-color: #FFC267;
+    display: flex;
+    align-items:center;
+    flex-direction: column;
+    justify-content: center;
+}
+.awards h1{
+    font-size: 5vh;
+
+}
+
+.awards .arrow2{
+    color: black;
+    height: 3vh;
+    width: 2vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position:absolute;
+    right: 5%;
+    top: 10%;
+    rotate: 45deg;
+    font-size: 5vh;
 }
