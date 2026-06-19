@@ -1,0 +1,42 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+  width: 100%;
+}
+
+header{
+    height: 10%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+header #navbar{
+    height: 80%;
+    width: 80%;
+    background-color: lightcyan;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 40px;
+}
+
+#navbar h1{
+    margin-left: 40px;
+    font-family:Arial, Helvetica, sans-serif
+}
+#navbar button{
+    margin-right: 10px;
+    border: none;
+    background-color: lightcyan;
+    font-size: 2rem;
+    height: 40%;
+    width: 10%;
+    border-radius: 30px;
+}

@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Task Manager</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body data-theme="light">
+    <header>
+      <h1>Task Manager <span>| Assignment on DOM |</span></h1>
+      <button id="themeToggle">Dark Mode</button>
+    </header>
+
+    <main>
+      <section class="task-form-section">
+        <h2>Create Task</h2>
+
+        <form id="taskForm">
+          <input
+            type="text"
+            id="taskInput"
+            placeholder="Enter task title"
+            required
+          />
+
+          <select id="categorySelect">
+            <option value="Coding">Coding</option>
+            <option value="Study">Study</option>
+            <option value="Personal">Personal</option>
+            <option value="Work">Work</option>
+          </select>
+
+          <button type="submit">Add Task</button>
+        </form>
+      </section>
+
+      <section class="search-section">
+        <input type="text" id="searchInput" placeholder="Search tasks..." />
+      </section>
+
+      <section class="stats">
+        <div class="stat-card">
+          <h3>Total</h3>
+          <p id="totalCount">0</p>
+        </div>
+
+        <div class="stat-card">
+          <h3>Completed</h3>
+          <p id="completedCount">0</p>
+        </div>
+
+        <div class="stat-card">
+          <h3>Pending</h3>
+          <p id="pendingCount">0</p>
+        </div>
+      </section>
+
+      <section class="actions">
+        <button id="clearAllBtn">Clear All Tasks</button>
+      </section>
+
+      <section>
+        <h2>Your Tasks</h2>
+
+        <div id="taskContainer"></div>
+      </section>
+      <section id="diff">
+      <section class="attribute-demo">
+        <h2>Attributes vs Properties Demo</h2>
+
+        <input type="text" id="demoInput" value="Hello DOM" />
+
+        <button id="checkDifferenceBtn">Check Difference</button>
+
+        <div id="differenceOutput"></div>
+      </section>
+
+      <section class="propagation-demo">
+        <h2>Event Propagation Demo</h2>
+
+        <p>Open Console and click Child Button</p>
+
+        <div id="grandparent">
+          Grandparent
+
+          <div id="parent">
+            Parent
+
+            <button id="childBtn">Child Button</button>
+          </div>
+        </div>
+      </section>
+
+      <section class="pipeline">
+        <h2>Browser Rendering Pipeline</h2>
+
+        <div class="pipeline-container">
+          <div class="pipeline-card">HTML</div>
+
+          <div class="arrow">↓</div>
+
+          <div class="pipeline-card">Parsing</div>
+
+          <div class="arrow">↓</div>
+
+          <div class="pipeline-card">Tokenization</div>
+
+          <div class="arrow">↓</div>
+
+          <div class="pipeline-card">DOM Tree</div>
+
+          <div class="arrow">+</div>
+
+          <div class="pipeline-card">CSS</div>
+
+          <div class="arrow">↓</div>
+
+          <div class="pipeline-card">CSSOM Tree</div>
+
+          <div class="arrow">↓</div>
+
+          <div class="pipeline-card">Render Tree</div>
+
+          <div class="arrow">↓</div>
+
+          <div class="pipeline-card">Painting</div>
+        </div>
+      </section>
+      </section>
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+</html>
