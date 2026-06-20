@@ -8,6 +8,22 @@ Users can add, edit, complete, search, and delete tasks dynamically. The project
 
 ---
 
+## Features
+
+* Add New Tasks
+* Edit Existing Tasks
+* Delete Tasks
+* Mark Tasks as Complete
+* Search Tasks
+* Clear All Tasks
+* Task Counters
+* Dark Mode / Light Mode Toggle
+* Local Storage Integration
+* Event Delegation
+* Event Bubbling Demonstration
+* Event Capturing Demonstration
+* Attributes vs Properties Demonstration
+* Browser Rendering Pipeline Visualization
 
 ---
 
