@@ -274,4 +274,20 @@ grandparent.addEventListener(
     true
 );
 
+parent.addEventListener(
+    "click",
+    () => {
+        console.log("Parent Capturing");
+    },
+    true
+);
 
+childBtn.addEventListener(
+    "click",
+    () => {
+        console.log("Child Capturing");
+    },
+    true
+);
+
+renderTasks();
