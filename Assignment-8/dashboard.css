@@ -1,0 +1,62 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+  width: 100%;
+  font-family: sans-serif;
+}
+
+main {
+  height: 100%;
+  width: 100%;
+  display: grid;
+  grid-template-columns: 20% 20% 20% 20% 20%;
+  grid-template-rows: 10% 20% 35% 35%;
+  grid-template-areas:
+    "nav-left nav-right nav-right nav-right nav-right"
+    "nav-left balance income expence transaction"
+    "nav-left cash-flow cash-flow cash-flow preference"
+    "nav-left transaction transaction transaction summary";
+}
+
+main #div1 {
+  grid-area: nav-left;
+  background-color: aqua;
+}
+main #div2 {
+  grid-area: nav-right;
+  background-color: blue;
+}
+main #div3 {
+  grid-area: balance;
+  background-color: red;
+}
+main #div4 {
+  grid-area: income;
+  background-color: green;
+}
+main #div5 {
+  grid-area: expence;
+  background-color: yellow;
+}
+main #div6 {
+  grid-area: cash-flow;
+  background-color: pink;
+}
+main #div7 {
+  grid-area: preference;
+  background-color: brown;
+}
+main #div8 {
+  grid-area: transaction;
+  background-color: wheat;
+}
+main #div9 {
+  grid-area: summary;
+  background-color: fuchsia;
+}
