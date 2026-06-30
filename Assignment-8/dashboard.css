@@ -8,19 +8,19 @@ html,
 body {
   height: 100%;
   width: 100%;
-  font-family: sans-serif;
+  font-family: sales;
+
 }
 
 @font-face {
-    font-family: sans;
+    font-family: sales;
     src: url(./salesforce-sans-regular-679547df303acfaf9b97.woff2);
 }
 
 main {
   height: 100%;
   width: 100%;
-  font-family: sans;
-  background-color: purple;
+  background-color: hsl(226, 85%, 5%);
   color: white;
   display: grid;
   grid-template-columns: 18rem repeat(4, 1fr);
@@ -30,13 +30,84 @@ main {
     "nav-left balance income expence transaction-card"
     "nav-left cash-flow cash-flow cash-flow preference"
     "nav-left transaction transaction transaction summary";
-gap: 1rem;
+gap: 1.5rem;
 }
 
 main #div1 {
   grid-area: nav-left;
-  background-color: aqua;
+  background-color: rgb(16, 16, 47);
+  
 }
+#div1 .first{
+    height: 50%;
+    width: 100%;
+    padding-top: 20px;
+    display: flex;
+  flex-direction: column;
+  align-items:center;
+  justify-content: flex-start;
+  gap: 20px;
+}
+
+#div1 .first .logo{
+    height: 20%;
+    width: 100%;
+    font-size: 1.3rem;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+.logo .logo-1{
+    height: 100%;
+    width: 25%;
+    font-size: 4rem;
+    color: rgb(135, 78, 224);
+    
+}
+.logo .logo-2 h3{
+    font-size: 1.8rem;
+}
+.logo .logo-2 p{
+    font-size: 1rem;
+}
+.dashboard{
+    height: 100%;
+    width: 85%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-around;
+    
+}
+.dashboard button{
+    font-size: 1.5rem;
+    border: none;
+    color: white;
+    cursor: pointer;
+    background-color: transparent;
+    text-align: left;
+    width: 100%;
+    height: 13%;
+    padding: 10px;
+    border-radius: 10px;
+    transition: all 0.3s ease;   
+}
+.dashboard button:hover {
+    background-image: linear-gradient(to right, rgb(130, 51, 197), rgb(80, 65, 220));
+    
+}
+
+#div1 .second{
+    height: 50%;
+    width: 100%;
+    padding-bottom: 20px;
+      display: flex;
+  flex-direction: column;
+  align-items:center;
+  justify-content: flex-end;
+}
+
 main #div2 {
   grid-area: nav-right;
     margin-right: 1rem;
@@ -50,42 +121,66 @@ main #div2 {
     display: flex;
     gap: 1rem;
     justify-content: flex-end;
+    align-items: center;
 }
 
+.text h3{
+    font-size: 1.7rem;
+    letter-spacing: 2px;
+}
 
+#div2 .logout button{
+    width: 6rem;
+    height: 2rem;
+    border-radius: 10px;
+    border: none;
+    font-family: sales;
+    font-weight: 600;
+    background-color: white;
+}
+.ri-user-6-line {
+    font-size: 2rem;
+}
 main #div3 {
   grid-area: balance;
-  background-color: red;
+  background-color: rgb(13, 19, 47);
+    border: 2px solid rgb(70, 55, 123);
+
   border-radius: 10px;
   
 }
 main #div4 {
   grid-area: income;
-  background-color: green;
+  background-color: rgb(9, 21, 42);
+    border: 2px solid rgb(70, 55, 123);
+
   border-radius: 10px;
 
 }
 main #div5 {
   grid-area: expence;
-  background-color: yellow;
+  background-color: rgb(11, 19, 42);
+    border: 2px solid rgb(70, 55, 123);
+
   border-radius: 10px;
 
 }
 main #div6{
    grid-area: transaction-card;
-    background-color: gold;
+    background-color: rgb(9, 19, 49);
+    border: 2px solid rgb(70, 55, 123);
     margin-right: 1rem;
   border-radius: 10px;
 
 }
 main #div7 {
   grid-area: cash-flow;
-  background-color: pink;
+  background-color: rgb(8, 18, 39);
   border-radius: 10px;
 }
 main #div8 {
   grid-area: preference;
-  background-color: brown;
+  background-color: rgb(16, 16, 47);
   border-radius: 10px;
     margin-right: 1rem;
 }
@@ -94,7 +189,7 @@ main #div9 {
   border-radius: 10px;
     margin-bottom: 1rem;
 
-  background-color: wheat;
+  background-color: rgb(8, 16, 39);
 }
 main #div10 {
   grid-area: summary;
@@ -102,5 +197,5 @@ main #div10 {
     margin-right: 1rem;
     margin-bottom: 1rem;
 
-  background-color: fuchsia;
+  background-color: rgb(9, 18, 41);
 }
