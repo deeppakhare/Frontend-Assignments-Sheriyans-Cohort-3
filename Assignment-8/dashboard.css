@@ -20,7 +20,7 @@ main {
   height: 100%;
   width: 100%;
   font-family: sans;
-  background-color: ;
+  background-color: purple;
   color: white;
   display: grid;
   grid-template-columns: 18rem repeat(4, 1fr);
