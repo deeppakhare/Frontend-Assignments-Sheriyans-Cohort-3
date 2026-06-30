@@ -11,17 +11,26 @@ body {
   font-family: sans-serif;
 }
 
+@font-face {
+    font-family: sans;
+    src: url(./salesforce-sans-regular-679547df303acfaf9b97.woff2);
+}
+
 main {
   height: 100%;
   width: 100%;
+  font-family: sans;
+  background-color: ;
+  color: white;
   display: grid;
-  grid-template-columns: 20% 20% 20% 20% 20%;
-  grid-template-rows: 10% 20% 35% 35%;
+  grid-template-columns: 18rem repeat(4, 1fr);
+  grid-template-rows: 1fr 2fr 3.5fr 3.5fr;
   grid-template-areas:
     "nav-left nav-right nav-right nav-right nav-right"
-    "nav-left balance income expence transaction"
+    "nav-left balance income expence transaction-card"
     "nav-left cash-flow cash-flow cash-flow preference"
     "nav-left transaction transaction transaction summary";
+gap: 1rem;
 }
 
 main #div1 {
@@ -30,33 +39,68 @@ main #div1 {
 }
 main #div2 {
   grid-area: nav-right;
-  background-color: blue;
+    margin-right: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: white;
 }
+#div2 .profile{
+    width: 50%;
+    display: flex;
+    gap: 1rem;
+    justify-content: flex-end;
+}
+
+
 main #div3 {
   grid-area: balance;
   background-color: red;
+  border-radius: 10px;
+  
 }
 main #div4 {
   grid-area: income;
   background-color: green;
+  border-radius: 10px;
+
 }
 main #div5 {
   grid-area: expence;
   background-color: yellow;
+  border-radius: 10px;
+
 }
-main #div6 {
-  grid-area: cash-flow;
-  background-color: pink;
+main #div6{
+   grid-area: transaction-card;
+    background-color: gold;
+    margin-right: 1rem;
+  border-radius: 10px;
+
 }
 main #div7 {
-  grid-area: preference;
-  background-color: brown;
+  grid-area: cash-flow;
+  background-color: pink;
+  border-radius: 10px;
 }
 main #div8 {
-  grid-area: transaction;
-  background-color: wheat;
+  grid-area: preference;
+  background-color: brown;
+  border-radius: 10px;
+    margin-right: 1rem;
 }
 main #div9 {
+  grid-area: transaction;
+  border-radius: 10px;
+    margin-bottom: 1rem;
+
+  background-color: wheat;
+}
+main #div10 {
   grid-area: summary;
+  border-radius: 10px;
+    margin-right: 1rem;
+    margin-bottom: 1rem;
+
   background-color: fuchsia;
 }
