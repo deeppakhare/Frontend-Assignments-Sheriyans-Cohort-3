@@ -1,14 +1,36 @@
+/* --- Global Resets & Theme Configurations --- */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
+/* Default Dark Base Colors */
+body, body.dark-theme {
+  --bg-main: hsl(226, 85%, 5%);
+  --bg-sidebar: rgb(16, 16, 47);
+  --bg-card: rgb(13, 19, 47);
+  --text-base: white;
+  --border-color: rgb(70, 55, 123);
+}
+
+/* Light Theme Variable Overrides */
+body.light-theme {
+  --bg-main: #f1f5f9;
+  --bg-sidebar: #ffffff;
+  --bg-card: #ffffff;
+  --text-base: #0f172a;
+  --border-color: #cbd5e1;
+}
+
 html,
 body {
   height: 100%;
   width: 100%;
-  font-family: sales;
+  font-family: sales, sans-serif;
+  background-color: var(--bg-main);
+  color: var(--text-base);
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 @font-face {
@@ -19,8 +41,8 @@ body {
 main {
   height: 100%;
   width: 100%;
-  background-color: hsl(226, 85%, 5%);
-  color: white;
+  background-color: var(--bg-main);
+  color: var(--text-base);
   display: grid;
   grid-template-columns: 18rem repeat(4, 1fr);
   grid-template-rows: 1fr 2fr 3.5fr 3.5fr;
@@ -32,10 +54,13 @@ main {
   gap: 1.5rem;
 }
 
+/* --- Left Sidebar Grid Panel --- */
 main #div1 {
   grid-area: nav-left;
-  background-color: rgb(16, 16, 47);
+  background-color: var(--bg-sidebar);
+  border-right: 1px solid var(--border-color);
 }
+
 #div1 .first {
   height: 50%;
   width: 100%;
@@ -56,18 +81,22 @@ main #div1 {
   align-items: center;
   justify-content: center;
 }
+
 .logo .logo-1 {
   height: 100%;
   width: 25%;
   font-size: 4rem;
   color: rgb(135, 78, 224);
 }
+
 .logo .logo-2 h3 {
   font-size: 1.8rem;
 }
+
 .logo .logo-2 p {
   font-size: 1rem;
 }
+
 .dashboard {
   height: 100%;
   width: 85%;
@@ -76,10 +105,11 @@ main #div1 {
   align-items: flex-start;
   justify-content: space-around;
 }
+
 .dashboard button {
   font-size: 1.5rem;
   border: none;
-  color: white;
+  color: var(--text-base);
   cursor: pointer;
   background-color: transparent;
   text-align: left;
@@ -89,7 +119,9 @@ main #div1 {
   border-radius: 10px;
   transition: all 0.3s ease;
 }
+
 .dashboard button:hover {
+  color: white;
   background-image: linear-gradient(
     to right,
     rgb(130, 51, 197),
@@ -125,7 +157,6 @@ main #div1 {
   align-items: flex-start;
   justify-content: space-evenly;
   border: 2px solid rgb(70, 55, 123);
-
 }
 
 .goPre .crown {
@@ -138,12 +169,15 @@ main #div1 {
   justify-content: flex-start;
   border-radius: 10px;
 }
+
 .goPre h3 {
   margin-bottom: 5px;
 }
+
 .goPre p {
   font-size: 1rem;
 }
+
 .premium .preBtn {
   height: 20%;
   width: 90%;
@@ -157,6 +191,7 @@ main #div1 {
   align-items: center;
   justify-content: center;
 }
+
 .preBtn button {
   background: transparent;
   color: white;
@@ -165,6 +200,7 @@ main #div1 {
   font-size: 1rem;
   font-weight: 600;
 }
+
 .second .addBtn {
   height: 10%;
   width: 80%;
@@ -178,6 +214,7 @@ main #div1 {
   align-items: center;
   justify-content: center;
 }
+
 .addBtn button {
   background: transparent;
   color: white;
@@ -187,14 +224,16 @@ main #div1 {
   font-weight: 600;
 }
 
+/* --- Right Header Navigation Grid Panel --- */
 main #div2 {
   grid-area: nav-right;
   margin-right: 1rem;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  color: white;
+  color: var(--text-base);
 }
+
 #div2 .profile {
   width: 50%;
   display: flex;
@@ -216,61 +255,249 @@ main #div2 {
   font-family: sales;
   font-weight: 600;
   background-color: white;
+  color: #000;
   cursor: pointer;
 }
+
 .ri-user-6-line {
   font-size: 2rem;
 }
-main #div3 {
-  grid-area: balance;
-  background-color: rgb(13, 19, 47);
-  border: 2px solid rgb(70, 55, 123);
-  border-radius: 10px;
-}
-main #div4 {
-  grid-area: income;
-  background-color: rgb(9, 21, 42);
-  border: 2px solid rgb(70, 55, 123);
 
-  border-radius: 10px;
-}
-main #div5 {
-  grid-area: expence;
-  background-color: rgb(11, 19, 42);
-  border: 2px solid rgb(70, 55, 123);
+/* --- Metric Cards Formatting Grid Area Sections --- */
+main #div3 { grid-area: balance; background-color: var(--bg-card); border: 2px solid var(--border-color); border-radius: 10px; }
+main #div4 { grid-area: income; background-color: var(--bg-card); border: 2px solid var(--border-color); border-radius: 10px; }
+main #div5 { grid-area: expence; background-color: var(--bg-card); border: 2px solid var(--border-color); border-radius: 10px; }
+main #div6 { grid-area: transaction-card; background-color: var(--bg-card); border: 2px solid var(--border-color); margin-right: 1rem; border-radius: 10px; }
 
-  border-radius: 10px;
+.card-content {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: 35px 0px 15px 35px;
+  gap: 20px;
 }
-main #div6 {
-  grid-area: transaction-card;
-  background-color: rgb(9, 19, 49);
-  border: 2px solid rgb(70, 55, 123);
-  margin-right: 1rem;
-  border-radius: 10px;
-}
-main #div7 {
-  grid-area: cash-flow;
-  background-color: rgb(8, 18, 39);
-  border-radius: 10px;
-}
-main #div8 {
-  grid-area: preference;
-  background-color: rgb(16, 16, 47);
-  border-radius: 10px;
-  margin-right: 1rem;
-}
-main #div9 {
-  grid-area: transaction;
-  border-radius: 10px;
-  margin-bottom: 1rem;
 
-  background-color: rgb(8, 16, 39);
-}
-main #div10 {
-  grid-area: summary;
+.card-content .card-top {
+  height: 80px;
+  width: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   border-radius: 10px;
-  margin-right: 1rem;
-  margin-bottom: 1rem;
+  font-size: 3.5rem;
+}
 
-  background-color: rgb(9, 18, 41);
+.logo1 { background-color: rgba(52, 27, 112, 0.628); color: rgb(128, 50, 194); }
+.logo2 { background-color: rgba(17, 89, 67, 0.628); color: rgb(79, 242, 155); }
+.logo3 { background-color: rgba(70, 27, 53, 0.702); color: rgb(248, 85, 120); }
+.logo4 { background-color: rgba(14, 36, 96, 0.714); color: rgb(115, 162, 233); }
+
+.card-middle {
+  display: flex;
+  flex-direction: column;
+  gap: 17px;
+}
+
+.card-middle .symbol {
+  display: flex;
+  gap: 10px;
+  font-size: 1.2rem;
+}
+
+.card-bottom {
+  padding-left: 35px;
+  font-size: 1rem;
+  color: #94a3b8;
+}
+
+/* Remaining Grid Placeholders */
+main #div7 { grid-area: cash-flow; background-color: var(--bg-card); border-radius: 10px; }
+main #div8 { grid-area: preference; background-color: var(--bg-card); border-radius: 10px; margin-right: 1rem; }
+main #div9 { grid-area: transaction; border-radius: 10px; margin-bottom: 1rem; background-color: var(--bg-card); }
+main #div10 { grid-area: summary; border-radius: 10px; margin-right: 1rem; margin-bottom: 1rem; background-color: var(--bg-card); }
+
+/* --- Settings Popup Modal Window --- */
+.hidden {
+  display: none !important;
+}
+
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(7, 6, 13, 0.85);
+  backdrop-filter: blur(8px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  animation: fadeIn 0.2s ease-out;
+}
+
+.modal-content {
+  background: #111022;
+  border: 1px solid #22213d;
+  border-radius: 16px;
+  width: 100%;
+  max-width: 460px;
+  padding: 28px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4), 
+              0 0 30px rgba(99, 102, 241, 0.15);
+}
+
+.modal-header h2 {
+  color: white;
+  font-size: 1.4rem;
+  margin-bottom: 6px;
+  font-weight: 600;
+}
+
+.modal-header p {
+  color: #94a3b8;
+  font-size: 0.875rem;
+  margin-bottom: 24px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  color: white;
+  font-size: 0.875rem;
+  font-weight: 500;
+  margin-bottom: 8px;
+}
+
+.form-group input[type="text"],
+.form-group select {
+  background: #17162c;
+  border: 1px solid #22213d;
+  border-radius: 8px;
+  color: white;
+  padding: 12px 14px;
+  font-size: 0.95rem;
+  transition: all 0.2s ease;
+  outline: none;
+}
+
+.form-group input[type="text"]:focus,
+.form-group select:focus {
+  border-color: #6366f1;
+  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.25);
+}
+
+.switch-group {
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 14px 0;
+  border-top: 1px solid #22213d;
+  border-bottom: 1px solid #22213d;
+  margin-bottom: 24px;
+}
+
+.switch-label-block {
+  display: flex;
+  flex-direction: column;
+}
+
+.label-title {
+  color: white;
+  font-size: 0.95rem;
+  font-weight: 500;
+}
+
+.label-desc {
+  color: #94a3b8;
+  font-size: 0.8rem;
+  margin-top: 2px;
+}
+
+.theme-switch {
+  position: relative;
+  display: inline-block;
+  width: 48px;
+  height: 24px;
+}
+
+.theme-switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background-color: #2e2c4e;
+  transition: .3s;
+  border-radius: 24px;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 18px;
+  width: 18px;
+  left: 3px;
+  bottom: 3px;
+  background-color: white;
+  transition: .3s;
+  border-radius: 50%;
+}
+
+input:checked + .slider {
+  background-color: #6366f1;
+}
+
+input:checked + .slider:before {
+  transform: translateX(24px);
+}
+
+.modal-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+}
+
+.btn {
+  padding: 11px 20px;
+  border-radius: 8px;
+  font-size: 0.925rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  border: none;
+}
+
+.btn-secondary {
+  background: transparent;
+  color: #94a3b8;
+  border: 1px solid #22213d;
+}
+
+.btn-secondary:hover {
+  background: rgba(255, 255, 255, 0.03);
+  color: white;
+}
+
+.btn-primary {
+  background: #6366f1;
+  color: #ffffff;
+}
+
+.btn-primary:hover {
+  background: #4f46e5;
+  box-shadow: 0 0 12px rgba(99, 102, 241, 0.4);
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }  
 }

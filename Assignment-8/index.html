@@ -3,12 +3,9 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>FinTrack Pro - Dashboard</title>
     <link rel="stylesheet" href="dashboard.css" />
-    <link
-      href="https://cdn.jsdelivr.net/npm/remixicon@4.9.0/fonts/remixicon.css"
-      rel="stylesheet"
-    />
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.9.0/fonts/remixicon.css" rel="stylesheet" />
   </head>
   <body>
     <main>
@@ -26,7 +23,9 @@
           <div class="dashboard">
             <button><i class="ri-home-8-line"></i> Dashboard</button>
             <button><i class="ri-calculator-line"></i> Calculator</button>
-            <button><i class="ri-settings-5-line"></i> Setting</button>
+            <button id="settingsBtn">
+              <i class="ri-settings-5-line"></i> Setting
+            </button>
             <button><i class="ri-contacts-line"></i> Contact</button>
             <button><i class="ri-question-line"></i> Help & Support</button>
           </div>
@@ -50,10 +49,11 @@
           </div>
         </div>
       </div>
+      
       <div id="div2">
         <div class="text">
           <h3>Welcome back, <span class="userName"></span>👋</h3>
-          <p>Here's is your finanacial overview today.</p>
+          <p>Here's is your financial overview today.</p>
         </div>
         <div class="profile">
           <h3><i class="ri-user-6-line"></i></h3>
@@ -62,23 +62,124 @@
           </div>
         </div>
       </div>
-      <div id="div3">
-        <div class="current">
-          <i class="ri-wallet-line"></i>
+
+      <div id="div3" class="summary-card">
+        <div class="card-content">
+          <div class="card-top logo1">
+            <i class="ri-wallet-line"></i>
+          </div>
+          <div class="card-middle">
+            <h3>Current Balance</h3>
+            <div class="symbol">
+              <h3><span class="currency-symbol">₹</span>0.00</h3>
+            </div>
+          </div>
         </div>
-        <div class="current-text">
-          <h3>Current Balane </h3>
-          <h2><h2 id=""></h2></h2>
+        <div class="card-bottom">
+          <p>-- 0% from last month</p>
         </div>
       </div>
-      <div id="div4"></div>
-      <div id="div5"></div>
-      <div id="div6"></div>
+
+      <div id="div4" class="summary-card">
+        <div class="card-content">
+          <div class="card-top logo2">
+            <i class="ri-arrow-up-fill"></i>
+          </div>
+          <div class="card-middle">
+            <h3>Total Income</h3>
+            <div class="symbol">
+              <h3><span class="currency-symbol">₹</span>0.00</h3>
+            </div>
+          </div>
+        </div>
+        <div class="card-bottom">
+          <p>-- 0% from last month</p>
+        </div>
+      </div>
+
+      <div id="div5" class="summary-card">
+        <div class="card-content">
+          <div class="card-top logo3">
+            <i class="ri-arrow-right-down-fill"></i>
+          </div>
+          <div class="card-middle">
+            <h3>Total Expense</h3>
+            <div class="symbol">
+              <h3><span class="currency-symbol">₹</span>0.00</h3>
+            </div>
+          </div>
+        </div>
+        <div class="card-bottom">
+          <p>-- 0% from last month</p>
+        </div>
+      </div>
+
+      <div id="div6" class="summary-card">
+        <div class="card-content">
+          <div class="card-top logo4">
+            <i class="ri-bill-line"></i>
+          </div>
+          <div class="card-middle">
+            <h3>Total Transaction</h3>
+            <div class="symbol">
+              <h3><span class="currency-symbol">₹</span>0.00</h3>
+            </div>
+          </div>
+        </div>
+        <div class="card-bottom">
+          <p>-- 0% from last month</p>
+        </div>
+      </div>
+
       <div id="div7"></div>
       <div id="div8"></div>
       <div id="div9"></div>
-      <div id="div9"></div>
       <div id="div10"></div>
+
+      <div id="settingsModal" class="modal-overlay hidden">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h2>Profile Settings</h2>
+            <p>Update your personal information and system preferences.</p>
+          </div>
+
+          <form id="settingsForm" autocomplete="off">
+            <div class="form-group">
+              <label for="settingsName">Profile Name</label>
+              <input type="text" id="settingsName" placeholder="Enter your name" required />
+            </div>
+
+            <div class="form-group">
+              <label for="currencySelect">Default Currency</label>
+              <div class="select-wrapper">
+                <select id="currencySelect">
+                  <option value="INR">INR (₹)</option>
+                  <option value="USD">USD ($)</option>
+                  <option value="EUR">EUR (€)</option>
+                  <option value="GBP">GBP (£)</option>
+                  <option value="JPY">JPY (¥)</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="form-group switch-group">
+              <div class="switch-label-block">
+                <span class="label-title">Dark Mode</span>
+                <span class="label-desc">Switch between dark and light appearance</span>
+              </div>
+              <label class="theme-switch">
+                <input type="checkbox" id="themeToggle" checked />
+                <span class="slider"></span>
+              </label>
+            </div>
+
+            <div class="modal-actions">
+              <button type="button" id="cancelSettings" class="btn btn-secondary">Cancel</button>
+              <button type="submit" id="saveSettings" class="btn btn-primary">Save Changes</button>
+            </div>
+          </form>
+        </div>
+      </div>
     </main>
     <script src="app.js"></script>
   </body>
