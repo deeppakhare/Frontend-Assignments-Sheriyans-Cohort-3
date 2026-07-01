@@ -478,3 +478,138 @@ if (settingsObserverForm) {
         }, 50);
     });
 }
+
+
+// ==========================================================================
+// FEATURES B & D: INTEGRATED CORE INTERACTION CALCULATIONS ENGINE
+// ==========================================================================
+
+// --- 1. Preference Elements & System Theme Synchronization Hooks ---
+const dashThemeToggle = document.getElementById('dashThemeToggle');
+const dashResetDataBtn = document.getElementById('dashResetDataBtn');
+
+// Initialize the theme state toggle checkbox on script startup boot operations
+function syncThemeToggleButtonState() {
+    if (!dashThemeToggle) return;
+    const isDark = document.body.classList.contains('dark-theme') || !document.body.classList.contains('light-theme');
+    dashThemeToggle.checked = isDark;
+}
+
+if (dashThemeToggle) {
+    dashThemeToggle.addEventListener('change', (e) => {
+        if (e.target.checked) {
+            document.body.classList.remove('light-theme');
+            document.body.classList.add('dark-theme');
+            localStorage.setItem('theme', 'dark');
+        } else {
+            document.body.classList.remove('dark-theme');
+            document.body.classList.add('light-theme');
+            localStorage.setItem('theme', 'light');
+        }
+        
+        // Refresh chart visually so text legends invert instantly matching contrast
+        if (typeof window.renderCashFlowChart === 'function') {
+            window.renderCashFlowChart();
+        }
+    });
+}
+
+// Global System Reset Application Data Trigger Call
+if (dashResetDataBtn) {
+    dashResetDataBtn.addEventListener('click', () => {
+        if (confirm("WARNING: Are you absolutely certain you want to permanently clear all recorded transaction histories from browser storage? This cannot be undone.")) {
+            localStorage.removeItem('transactions');
+            alert("Local tracking database cleared successfully.");
+            window.masterRefresh();
+        }
+    });
+}
+
+// --- 2. Feature D: Mathematical Ledger Insights Calculation Engine ---
+function calculateQuickSummaryMetrics() {
+    const records = typeof getTransactions === 'function' ? getTransactions() : [];
+    
+    const elements = {
+        avgIncome: document.getElementById('avgDailyIncome'),
+        avgExpense: document.getElementById('avgDailyExpense'),
+        netPosition: document.getElementById('netSavingsPosition'),
+        progressFill: document.getElementById('insightsProgressFill')
+    };
+
+    if (!elements.avgIncome) return; // Verify element safe bindings maps existence
+
+    const activeSettings = JSON.parse(localStorage.getItem('settings')) || { currency: 'INR' };
+    const symbols = { INR: '₹', USD: '$', EUR: '€', GBP: '£', JPY: '¥' };
+    const activeSymbol = symbols[activeSettings.currency] || '₹';
+
+    if (records.length === 0) {
+        elements.avgIncome.innerText = `${activeSymbol}0.00`;
+        elements.avgExpense.innerText = `${activeSymbol}0.00`;
+        elements.netPosition.innerText = `${activeSymbol}0.00`;
+        elements.netPosition.className = "metric-calc-val";
+        elements.progressFill.style.width = "0%";
+        return;
+    }
+
+    // Step A: Group all individual transaction sums
+    let totalIncome = 0;
+    let totalExpense = 0;
+    const datesArray = [];
+
+    records.forEach(item => {
+        if (item.type === 'income') totalIncome += item.amount;
+        if (item.type === 'expense') totalExpense += item.amount;
+        if (item.date && !datesArray.includes(item.date)) {
+            datesArray.push(item.date);
+        }
+    });
+
+    // Step B: Extract lifespan window length in active calculation days
+    // Fallback to absolute minimum of 1 day boundary protection constraint to prevent division by zero errors
+    const absoluteDaysSpan = datesArray.length > 0 ? datesArray.length : 1;
+
+    // Step C: Formulate dynamic standard evaluation metrics 
+    const dailyIncomeAverage = totalIncome / absoluteDaysSpan;
+    const dailyExpenseAverage = totalExpense / absoluteDaysSpan;
+    const absoluteNetDiff = totalIncome - totalExpense;
+
+    // Step D: Inject text outputs to nodes components maps
+    elements.avgIncome.innerText = `${activeSymbol}${dailyIncomeAverage.toFixed(2)}`;
+    elements.avgExpense.innerText = `${activeSymbol}${dailyExpenseAverage.toFixed(2)}`;
+    elements.netPosition.innerText = `${absoluteNetDiff >= 0 ? '+' : ''}${activeSymbol}${absoluteNetDiff.toFixed(2)}`;
+
+    // Set conditional balance visualization class text status colors
+    if (absoluteNetDiff > 0) {
+        elements.netPosition.className = "metric-calc-val tx-income";
+    } else if (absoluteNetDiff < 0) {
+        elements.netPosition.className = "metric-calc-val tx-expense";
+    } else {
+        elements.netPosition.className = "metric-calc-val";
+    }
+
+    // Step E: Compute graphical filler bar percentages metrics layout
+    // Savings velocity efficiency indicator calculation ratio: Income vs Savings Remaining
+    if (totalIncome > 0) {
+        const structuralRatio = Math.max(0, Math.min(100, (absoluteNetDiff / totalIncome) * 100));
+        elements.progressFill.style.width = `${structuralRatio}%`;
+    } else {
+        elements.progressFill.style.width = "0%";
+    }
+}
+
+// --- 3. Inject Component Call Functions Hooks Cleanly inside Global Master Pipeline ---
+// We overwrite the window.masterRefresh function to include our newly declared calculation loops
+const previousMasterRefresh = window.masterRefresh;
+window.masterRefresh = function() {
+    if (typeof previousMasterRefresh === 'function') {
+        previousMasterRefresh();
+    }
+    calculateQuickSummaryMetrics();
+    syncThemeToggleButtonState();
+};
+
+// Auto-run trigger listener hook sequences right during initial page loads layouts setups
+document.addEventListener('DOMContentLoaded', () => {
+    syncThemeToggleButtonState();
+    calculateQuickSummaryMetrics();
+});

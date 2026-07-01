@@ -785,3 +785,187 @@ body.light-theme .chart-title-block h3 {
   width: 100%;
   min-height: 0; /* Crucial structural rule to prevent canvas expanding bounds */
 }
+
+
+/* ==========================================================================
+   FEATURE B & D: PREFERENCES AND QUICK SUMMARY COMPONENTS UI STYLING
+   ========================================================================== */
+
+#div8, #div10 {
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 1rem;
+  overflow: hidden;
+}
+
+/* --- Feature B Styles --- */
+.pref-header h3, .summary-comp-header h3 {
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: white;
+}
+
+body.light-theme .pref-header h3, body.light-theme .summary-comp-header h3 {
+  color: var(--text-base);
+}
+
+.pref-header p, .summary-comp-header p {
+  font-size: 0.78rem;
+  color: #94a3b8;
+  margin-top: 2px;
+}
+
+.pref-body {
+  display: flex;
+  flex-direction: column;
+  gap: 1.1rem;
+  flex: 1;
+  justify-content: center;
+}
+
+.pref-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.02);
+  padding: 10px 14px;
+  border-radius: 8px;
+  border: 1px solid #1e1b3a;
+}
+
+.pref-title {
+  font-size: 0.88rem;
+  font-weight: 500;
+  color: #e2e8f0;
+}
+
+.pref-desc {
+  font-size: 0.72rem;
+  color: #64748b;
+}
+
+/* Custom Checkbox Slider Toggle Component Box */
+.theme-toggle-switch {
+  position: relative;
+  display: inline-block;
+  width: 44px;
+  height: 22px;
+}
+
+.theme-toggle-switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.toggle-slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background-color: #22213d;
+  transition: .3s;
+  border-radius: 34px;
+}
+
+.toggle-slider:before {
+  position: absolute;
+  content: "";
+  height: 16px;
+  width: 16px;
+  left: 3px;
+  bottom: 3px;
+  background-color: #94a3b8;
+  transition: .3s;
+  border-radius: 50%;
+}
+
+.theme-toggle-switch input:checked + .toggle-slider {
+  background-color: #6366f1;
+}
+
+.theme-toggle-switch input:checked + .toggle-slider:before {
+  transform: translateX(22px);
+  background-color: white;
+}
+
+.btn-danger-ui {
+  background: rgba(248, 85, 120, 0.1);
+  border: 1px solid rgba(248, 85, 120, 0.2);
+  color: #f85578;
+  padding: 6px 12px;
+  font-size: 0.8rem;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.btn-danger-ui:hover {
+  background: #f85578;
+  color: white;
+}
+
+/* --- Feature D Styles --- */
+.summary-comp-metrics {
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+  flex: 1;
+  justify-content: center;
+}
+
+.metric-row-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.metric-meta {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.85rem;
+  color: #94a3b8;
+}
+
+.metric-meta i {
+  font-size: 1.1rem;
+  padding: 4px;
+  border-radius: 4px;
+}
+
+.icon-inc { background: rgba(79, 242, 155, 0.1); color: #4ff29b; }
+.icon-exp { background: rgba(248, 85, 120, 0.1); color: #f85578; }
+.icon-net { background: rgba(99, 102, 241, 0.1); color: #6366f1; }
+
+.metric-calc-val {
+  font-weight: 600;
+  font-size: 0.95rem;
+  color: white;
+}
+
+body.light-theme .metric-calc-val {
+  color: var(--text-base);
+}
+
+/* Underline graphic tracking bar container configurations */
+.insights-graphic-track {
+  width: 100%;
+  height: 5px;
+  background: #22213d;
+  border-radius: 10px;
+  overflow: hidden;
+  margin-top: 4px;
+}
+
+.insights-graphic-fill {
+  height: 100%;
+  width: 0%; /* Dynamic fill adjustment using JS calculations execution engine */
+  background: linear-gradient(90deg, #6366f1, #4ff29b);
+  border-radius: 10px;
+  transition: width 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}

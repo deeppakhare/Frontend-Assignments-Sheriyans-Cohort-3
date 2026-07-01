@@ -153,7 +153,34 @@
           <canvas id="cashFlowChart"></canvas>
         </div>
       </div>
-      <div id="div8"></div>
+      <div id="div8">
+        <div class="pref-header">
+          <h3>Dashboard Preferences</h3>
+          <p>Quick controls for your local workspace</p>
+        </div>
+        <div class="pref-body">
+          <div class="pref-row">
+            <div class="pref-text">
+              <span class="pref-title">Dark Mode Theme</span>
+              <p class="pref-desc">Switch interface display appearance</p>
+            </div>
+            <label class="theme-toggle-switch">
+              <input type="checkbox" id="dashThemeToggle" />
+              <span class="toggle-slider"></span>
+            </label>
+          </div>
+          
+          <div class="pref-row danger-zone">
+            <div class="pref-text">
+              <span class="pref-title">Reset All Records</span>
+              <p class="pref-desc">Wipe all structural storage memory</p>
+            </div>
+            <button id="dashResetDataBtn" class="btn-danger-ui">
+              <i class="ri-delete-bin-line"></i> Clear Storage
+            </button>
+          </div>
+        </div>
+      </div>
       <div id="div9">
         <div class="transaction-controls">
           <div class="search-wrapper">
@@ -197,7 +224,41 @@
           <p>Add your first transaction to get started</p>
         </div>
       </div>
-      <div id="div10"></div>
+      <div id="div10">
+        <div class="summary-comp-header">
+          <h3>Quick Insights</h3>
+          <p>Averages based on ledger timeline</p>
+        </div>
+        <div class="summary-comp-metrics">
+          <div class="metric-row-item">
+            <div class="metric-meta">
+              <i class="ri-arrow-left-down-line icon-inc"></i>
+              <span>Avg. Daily Income</span>
+            </div>
+            <span class="metric-calc-val tx-income" id="avgDailyIncome">₹0.00</span>
+          </div>
+
+          <div class="metric-row-item">
+            <div class="metric-meta">
+              <i class="ri-arrow-right-up-line icon-exp"></i>
+              <span>Avg. Daily Expense</span>
+            </div>
+            <span class="metric-calc-val tx-expense" id="avgDailyExpense">₹0.00</span>
+          </div>
+
+          <div class="metric-row-item">
+            <div class="metric-meta">
+              <i class="ri-bank-line icon-net"></i>
+              <span>Net Performance</span>
+            </div>
+            <span class="metric-calc-val" id="netSavingsPosition">₹0.00</span>
+          </div>
+        </div>
+        
+        <div class="insights-graphic-track">
+          <div class="insights-graphic-fill" id="insightsProgressFill"></div>
+        </div>
+      </div>
 
       <div id="settingsModal" class="modal-overlay hidden">
         <div class="modal-content">
