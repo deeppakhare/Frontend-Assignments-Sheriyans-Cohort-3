@@ -331,8 +331,8 @@
             <div class="form-group">
               <label for="txType">Transaction Type</label>
               <select id="txType" required>
-                <option value="income">Income (+)</option>
-                <option value="expense">Expense (-)</option>
+                <option value="income">Income</option>
+                <option value="expense">Expense</option>
               </select>
             </div>
 
@@ -343,7 +343,7 @@
 
             <div class="form-group">
               <label for="txAmount">Amount</label>
-              <input type="number" step="0.01" min="0.01" id="txAmount" placeholder="0.00" required />
+              <input type="number"  min="1" id="txAmount" placeholder="1" required />
             </div>
 
             <div class="form-group">

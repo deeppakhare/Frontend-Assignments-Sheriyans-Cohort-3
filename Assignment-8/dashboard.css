@@ -372,6 +372,8 @@ main #div9 {
   flex-direction: column;
   gap: 1.2rem;
   overflow: hidden;
+  border: 2px solid var(--border-color);
+
 }
 
 .transaction-controls {
@@ -589,6 +591,8 @@ main #div10 {
 }
 
 .form-group input[type="text"],
+#txAmount,
+#txDate,
 .form-group select {
   background: #17162c;
   border: 1px solid #22213d;
@@ -599,6 +603,7 @@ main #div10 {
   transition: all 0.2s ease;
   outline: none;
 }
+
 
 .form-group input[type="text"]:focus,
 .form-group select:focus {
@@ -614,6 +619,7 @@ main #div10 {
   border-top: 1px solid #22213d;
   border-bottom: 1px solid #22213d;
   margin-bottom: 24px;
+  display: none;
 }
 
 .switch-label-block {
@@ -792,6 +798,7 @@ body.light-theme .chart-title-block h3 {
   justify-content: space-between;
   gap: 1rem;
   overflow: hidden;
+  border: 2px solid var(--border-color);
 }
 
 
