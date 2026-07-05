@@ -22,16 +22,7 @@ function saveTasks() {
     localStorage.setItem("tasks", JSON.stringify(tasks));
 }
 
-function updateCounts() {
 
-    totalCount.textContent = tasks.length;
-
-    const completed = tasks.filter(task => task.status === "completed").length;
-
-    completedCount.textContent = completed;
-
-    pendingCount.textContent = tasks.length - completed;
-}
 
 function renderTasks() {
 
