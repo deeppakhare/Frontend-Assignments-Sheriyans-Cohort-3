@@ -808,23 +808,7 @@ body.light-theme .chart-title-block h3 {
   color: white;
 }
 
-body.light-theme .pref-header h3, body.light-theme .summary-comp-header h3 {
-  color: var(--text-base);
-}
 
-.pref-header p, .summary-comp-header p {
-  font-size: 0.78rem;
-  color: #94a3b8;
-  margin-top: 2px;
-}
-
-.pref-body {
-  display: flex;
-  flex-direction: column;
-  gap: 1.1rem;
-  flex: 1;
-  justify-content: center;
-}
 
 .pref-row {
   display: flex;
