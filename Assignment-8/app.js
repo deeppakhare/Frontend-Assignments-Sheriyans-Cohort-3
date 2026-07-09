@@ -526,7 +526,67 @@ if (dashResetDataBtn) {
 }
 
 
+function calculateQuickSummaryMetrics() {
+    const records = typeof getTransactions === 'function' ? getTransactions() : [];
+    
+    const elements = {
+        avgIncome: document.getElementById('avgDailyIncome'),
+        avgExpense: document.getElementById('avgDailyExpense'),
+        netPosition: document.getElementById('netSavingsPosition'),
+        progressFill: document.getElementById('insightsProgressFill')
+    };
 
+    if (!elements.avgIncome) return; 
+    const activeSettings = JSON.parse(localStorage.getItem('settings')) || { currency: 'INR' };
+    const symbols = { INR: '₹', USD: '$', EUR: '€', GBP: '£', JPY: '¥' };
+    const activeSymbol = symbols[activeSettings.currency] || '₹';
+
+    if (records.length === 0) {
+        elements.avgIncome.innerText = `${activeSymbol}0.00`;
+        elements.avgExpense.innerText = `${activeSymbol}0.00`;
+        elements.netPosition.innerText = `${activeSymbol}0.00`;
+        elements.netPosition.className = "metric-calc-val";
+        elements.progressFill.style.width = "0%";
+        return;
+    }
+
+    let totalIncome = 0;
+    let totalExpense = 0;
+    const datesArray = [];
+
+    records.forEach(item => {
+        if (item.type === 'income') totalIncome += item.amount;
+        if (item.type === 'expense') totalExpense += item.amount;
+        if (item.date && !datesArray.includes(item.date)) {
+            datesArray.push(item.date);
+        }
+    });
+
+    const absoluteDaysSpan = datesArray.length > 0 ? datesArray.length : 1;
+
+    const dailyIncomeAverage = totalIncome / absoluteDaysSpan;
+    const dailyExpenseAverage = totalExpense / absoluteDaysSpan;
+    const absoluteNetDiff = totalIncome - totalExpense;
+
+    elements.avgIncome.innerText = `${activeSymbol}${dailyIncomeAverage.toFixed(2)}`;
+    elements.avgExpense.innerText = `${activeSymbol}${dailyExpenseAverage.toFixed(2)}`;
+    elements.netPosition.innerText = `${absoluteNetDiff >= 0 ? '+' : ''}${activeSymbol}${absoluteNetDiff.toFixed(2)}`;
+
+    if (absoluteNetDiff > 0) {
+        elements.netPosition.className = "metric-calc-val tx-income";
+    } else if (absoluteNetDiff < 0) {
+        elements.netPosition.className = "metric-calc-val tx-expense";
+    } else {
+        elements.netPosition.className = "metric-calc-val";
+    }
+
+    if (totalIncome > 0) {
+        const structuralRatio = Math.max(0, Math.min(100, (absoluteNetDiff / totalIncome) * 100));
+        elements.progressFill.style.width = `${structuralRatio}%`;
+    } else {
+        elements.progressFill.style.width = "0%";
+    }
+}
 
 const previousMasterRefresh = window.masterRefresh;
 window.masterRefresh = function() {
