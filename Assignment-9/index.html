@@ -1,9 +1,9 @@
-<!DOCTYPE html>
-<html lang="en">
- <head>
+<!doctype html>
+<html lang="en" data-theme="dark">
+  <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Assigenment-9</title>
+    <title>Productivity OS - Windows Desktop Dashboard</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -16,10 +16,9 @@
     />
     <link rel="stylesheet" href="style.css" />
   </head>
-<body>
+  <body>
     <div id="desktop" class="desktop">
       <div class="desktop-icons">
-        
         <button
           class="desktop-icon"
           id="shortcut-todo"
@@ -43,7 +42,6 @@
           <span class="icon-label">Todo</span>
         </button>
 
-        
         <button
           class="desktop-icon"
           id="shortcut-planner"
@@ -67,7 +65,6 @@
           <span class="icon-label">Daily Planner</span>
         </button>
 
-        
         <button
           class="desktop-icon"
           id="shortcut-quote"
@@ -90,7 +87,6 @@
           <span class="icon-label">Motivation</span>
         </button>
 
-        
         <button
           class="desktop-icon"
           id="shortcut-pomodoro"
@@ -112,7 +108,6 @@
           <span class="icon-label">Pomodoro</span>
         </button>
 
-        
         <button
           class="desktop-icon"
           id="shortcut-goals"
@@ -136,8 +131,58 @@
           <span class="icon-label">Daily Goals</span>
         </button>
       </div>
+
+      <div class="desktop-widgets" id="desktop-widgets">
+        <div class="widget-card widget-clock">
+          <div class="widget-greeting" id="widget-greeting">Good Day</div>
+          <div class="widget-time" id="widget-time-display">12:00:00 PM</div>
+          <div class="widget-date" id="widget-date-display">Wednesday, July 15, 2026</div>
+        </div>
+
+        <div class="widget-card widget-weather" id="widget-weather-card">
+          <div class="widget-weather-main">
+            <div class="widget-weather-icon" id="widget-weather-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="4"></circle>
+                <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"></path>
+              </svg>
+            </div>
+            <div class="widget-weather-temp-group">
+              <span class="widget-weather-temp" id="widget-weather-temp">--°C</span>
+              <span class="widget-weather-desc" id="widget-weather-desc">Locating...</span>
+            </div>
+          </div>
+          <div class="widget-weather-details">
+            <div class="weather-detail-item">
+              <i class="ri-map-pin-2-line"></i>
+              <span id="widget-weather-city">Locating...</span>
+            </div>
+            <div class="weather-detail-item">
+              <i class="ri-droplet-line"></i>
+              <span id="widget-weather-humidity">Humidity: --%</span>
+            </div>
+            <div class="weather-detail-item">
+              <i class="ri-windy-line"></i>
+              <span id="widget-weather-wind">Wind: -- km/h</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="widget-card widget-quote">
+          <div class="widget-quote-header">
+            <span class="widget-title"><i class="ri-double-quotes-l"></i> Daily Inspiration</span>
+            <button class="widget-refresh-btn" id="widget-quote-refresh" title="Get new quote" aria-label="Refresh quote">
+              <i class="ri-refresh-line"></i>
+            </button>
+          </div>
+          <div class="widget-quote-body">
+            <p class="widget-quote-text" id="widget-quote-text">Loading inspiration...</p>
+            <span class="widget-quote-author" id="widget-quote-author">— Wisdom</span>
+          </div>
+        </div>
+      </div>
+
       <div id="window-container">
-        
         <div id="window-todo" class="window hidden" data-app="todo">
           <div class="window-header">
             <div class="window-header-title">
@@ -212,7 +257,7 @@
             </div>
           </div>
         </div>
-         
+
         <div id="window-planner" class="window hidden" data-app="planner">
           <div class="window-header">
             <div class="window-header-title">
@@ -256,7 +301,6 @@
           </div>
         </div>
 
-        
         <div id="window-quote" class="window hidden" data-app="quote">
           <div class="window-header">
             <div class="window-header-title">
@@ -311,8 +355,7 @@
             </div>
           </div>
         </div>
-        
-        
+
         <div id="window-pomodoro" class="window hidden" data-app="pomodoro">
           <div class="window-header">
             <div class="window-header-title">
@@ -400,7 +443,6 @@
           </div>
         </div>
 
-        
         <div id="window-goals" class="window hidden" data-app="goals">
           <div class="window-header">
             <div class="window-header-title">
@@ -418,59 +460,6 @@
               </svg>
               <span>Daily Goals</span>
             </div>
-
-      <div class="desktop-widgets" id="desktop-widgets">
-        <div class="widget-card widget-clock">
-          <div class="widget-greeting" id="widget-greeting">Good Day</div>
-          <div class="widget-time" id="widget-time-display">12:00:00 PM</div>
-          <div class="widget-date" id="widget-date-display">Wednesday, July 15, 2026</div>
-        </div>
-
-        <div class="widget-card widget-weather" id="widget-weather-card">
-          <div class="widget-weather-main">
-            <div class="widget-weather-icon" id="widget-weather-icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <circle cx="12" cy="12" r="4"></circle>
-                <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"></path>
-              </svg>
-            </div>
-            <div class="widget-weather-temp-group">
-              <span class="widget-weather-temp" id="widget-weather-temp">--°C</span>
-              <span class="widget-weather-desc" id="widget-weather-desc">Locating...</span>
-            </div>
-          </div>
-          <div class="widget-weather-details">
-            <div class="weather-detail-item">
-              <i class="ri-map-pin-2-line"></i>
-              <span id="widget-weather-city">Locating...</span>
-            </div>
-            <div class="weather-detail-item">
-              <i class="ri-droplet-line"></i>
-              <span id="widget-weather-humidity">Humidity: --%</span>
-            </div>
-            <div class="weather-detail-item">
-              <i class="ri-windy-line"></i>
-              <span id="widget-weather-wind">Wind: -- km/h</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="widget-card widget-quote">
-          <div class="widget-quote-header">
-            <span class="widget-title"><i class="ri-double-quotes-l"></i> Daily Inspiration</span>
-            <button class="widget-refresh-btn" id="widget-quote-refresh" title="Get new quote" aria-label="Refresh quote">
-              <i class="ri-refresh-line"></i>
-            </button>
-          </div>
-          <div class="widget-quote-body">
-            <p class="widget-quote-text" id="widget-quote-text">Loading inspiration...</p>
-            <span class="widget-quote-author" id="widget-quote-author">— Wisdom</span>
-          </div>
-        </div>
-      </div>
-
-
-
             <div class="window-controls">
               <button class="win-btn minimize" aria-label="Minimize Window">
                 <i class="ri-subtract-line"></i>
@@ -518,7 +507,7 @@
           </div>
         </div>
       </div>
-      
+
       <div id="start-menu" class="start-menu hidden">
         <div class="start-menu-grid">
           <div class="start-section-title">Quick Control Center</div>
@@ -646,5 +635,5 @@
     </div>
 
     <script src="script.js"></script>
-</body>
+  </body>
 </html>
