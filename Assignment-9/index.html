@@ -316,6 +316,165 @@
             </div>
           </div>
         </div>
+        
+        <!-- Pomodoro Window -->
+        <div id="window-pomodoro" class="window hidden" data-app="pomodoro">
+          <div class="window-header">
+            <div class="window-header-title">
+              <svg
+                class="window-app-icon pomodoro-icon-color"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2.5"
+              >
+                <circle cx="12" cy="12" r="10"></circle>
+                <polyline points="12 6 12 12 16 14"></polyline>
+              </svg>
+              <span>Pomodoro Timer</span>
+            </div>
+            <div class="window-controls">
+              <button class="win-btn minimize" aria-label="Minimize Window">
+                <i class="ri-subtract-line"></i>
+              </button>
+              <button class="win-btn maximize" aria-label="Maximize Window">
+                <i class="ri-square-line"></i>
+              </button>
+              <button class="win-btn close" aria-label="Close Window">
+                <i class="ri-close-large-line"></i>
+              </button>
+            </div>
+          </div>
+          <div class="window-body">
+            <div class="app-layout pomodoro-layout">
+              <!-- Timer Status Info -->
+              <div id="pomodoro-session-type" class="pomodoro-badge">
+                Work Session
+              </div>
+
+              <!-- Main Timer Visual -->
+              <div class="timer-visual-container">
+                <svg class="progress-ring" width="200" height="200">
+                  <circle
+                    class="progress-ring-circle-bg"
+                    stroke="rgba(255,255,255,0.08)"
+                    stroke-width="8"
+                    fill="transparent"
+                    r="90"
+                    cx="100"
+                    cy="100"
+                  />
+                  <circle
+                    id="pomodoro-progress"
+                    class="progress-ring-circle"
+                    stroke="var(--accent-color)"
+                    stroke-width="8"
+                    stroke-dasharray="565.48"
+                    stroke-dashoffset="565.48"
+                    fill="transparent"
+                    r="90"
+                    cx="100"
+                    cy="100"
+                  />
+                </svg>
+                <div id="pomodoro-display" class="timer-time">25:00</div>
+              </div>
+
+              <!-- Session Quick Selection -->
+              <div class="pomodoro-modes">
+                <button
+                  class="mode-btn active"
+                  data-duration="1500"
+                  data-type="work"
+                >
+                  Work (25m)
+                </button>
+                <button class="mode-btn" data-duration="300" data-type="short">
+                  Short Break (5m)
+                </button>
+                <button class="mode-btn" data-duration="900" data-type="long">
+                  Long Break (15m)
+                </button>
+              </div>
+
+              <!-- Controls -->
+              <div class="timer-controls">
+                <button id="pomodoro-start" class="primary-btn">Start</button>
+                <button id="pomodoro-pause" class="secondary-btn" disabled>
+                  Pause
+                </button>
+                <button id="pomodoro-reset" class="danger-btn">Reset</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Daily Goals Window -->
+        <div id="window-goals" class="window hidden" data-app="goals">
+          <div class="window-header">
+            <div class="window-header-title">
+              <svg
+                class="window-app-icon goals-icon-color"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2.5"
+              >
+                <circle cx="12" cy="8" r="7"></circle>
+                <polyline
+                  points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"
+                ></polyline>
+              </svg>
+              <span>Daily Goals</span>
+            </div>
+            <div class="window-controls">
+              <button class="win-btn minimize" aria-label="Minimize Window">
+                <i class="ri-subtract-line"></i>
+              </button>
+              <button class="win-btn maximize" aria-label="Maximize Window">
+                <i class="ri-square-line"></i>
+              </button>
+              <button class="win-btn close" aria-label="Close Window">
+                <i class="ri-close-large-line"></i>
+              </button>
+            </div>
+          </div>
+          <div class="window-body">
+            <div class="app-layout">
+              <!-- Progress Section -->
+              <div class="goals-progress-panel">
+                <div class="goals-progress-labels">
+                  <span class="panel-subtitle">Today's Progress</span>
+                  <span id="goals-ratio" class="goals-ratio-text"
+                    >0 of 0 completed</span
+                  >
+                </div>
+                <div class="progress-bar-container">
+                  <div
+                    id="goals-progress-bar"
+                    class="progress-bar-fill"
+                    style="width: 0%"
+                  ></div>
+                </div>
+              </div>
+
+              <div class="todo-input-bar">
+                <input
+                  type="text"
+                  id="goals-input"
+                  placeholder="Set a new goal for today..."
+                  aria-label="Goal content"
+                />
+                <button id="add-goal-btn" class="primary-btn">Add Goal</button>
+              </div>
+
+              <div class="todo-container-scroll">
+                <ul id="goals-list" class="todo-list"></ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
 
 </body>
 </html>
