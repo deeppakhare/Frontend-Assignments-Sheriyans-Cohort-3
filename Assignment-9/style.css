@@ -56,7 +56,6 @@
   --scrollbar-thumb: rgba(255, 255, 255, 0.15);
 }
 
-/* Base Styles */
 * {
   box-sizing: border-box;
   margin: 0;
@@ -85,13 +84,11 @@ body {
   flex-direction: column;
 }
 
-/* Dynamic Background Themes */
 .desktop.bg-morning { background-image: var(--desktop-bg-morning); }
 .desktop.bg-afternoon { background-image: var(--desktop-bg-afternoon); }
 .desktop.bg-evening { background-image: var(--desktop-bg-evening); }
 .desktop.bg-night { background-image: var(--desktop-bg-night); }
 
-/* Desktop Shortcuts Grid */
 .desktop-icons {
   padding: 24px;
   display: grid;
@@ -172,7 +169,6 @@ body {
 .pomodoro-icon-color { background: linear-gradient(135deg, #ff8c00, #d83b01); }
 .goals-icon-color { background: linear-gradient(135deg, #8764b8, #5c2d91); }
 
-/* Windows Container */
 #window-container {
   width: 100%;
   height: calc(100% - 48px);
@@ -181,7 +177,6 @@ body {
   pointer-events: none; /* Let clicks pass to desktop if no window */
 }
 
-/* Single Window Style */
 .window {
   position: absolute;
   width: 660px;
@@ -212,7 +207,6 @@ body {
   pointer-events: none;
 }
 
-/* Window Header / Title Bar */
 .window-header {
   height: 38px;
   background: rgba(0, 0, 0, 0.05);
@@ -278,7 +272,6 @@ body {
   border-radius: 0;
 }
 
-/* Window Body */
 .window-body {
   flex: 1;
   overflow: hidden;
@@ -287,7 +280,6 @@ body {
   flex-direction: column;
 }
 
-/* Common App Layout Inside Windows */
 .app-layout {
   padding: 20px;
   height: 100%;
@@ -296,7 +288,6 @@ body {
   overflow: hidden;
 }
 
-/* Todo / Goal Input Bar */
 .todo-input-bar {
   display: flex;
   gap: 8px;
@@ -351,7 +342,6 @@ body {
   height: 18px;
 }
 
-/* Custom Standard Buttons */
 .primary-btn, .secondary-btn, .danger-btn {
   padding: 8px 16px;
   border-radius: 6px;
@@ -401,7 +391,6 @@ body {
   background: #b3101b;
 }
 
-/* Scroll Containers */
 .todo-container-scroll {
   flex: 1;
   overflow-y: auto;
@@ -433,7 +422,6 @@ body {
   border-bottom: 1px solid var(--window-border);
 }
 
-/* Todo Task List items */
 .todo-list {
   list-style: none;
   display: flex;
