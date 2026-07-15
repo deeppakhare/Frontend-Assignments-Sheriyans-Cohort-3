@@ -1,0 +1,73 @@
+:root[data-theme="light"] {
+  --desktop-bg-morning: linear-gradient(135deg, #ff9a9e 0%, #fecfef 99%, #fecfef 100%);
+  --desktop-bg-afternoon: linear-gradient(135deg, #a1c4fd 0%, #c2e9fb 100%);
+  --desktop-bg-evening: linear-gradient(135deg, #f6d365 0%, #fda085 100%);
+  --desktop-bg-night: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+
+  --window-bg: rgba(243, 243, 243, 0.75);
+  --window-border: rgba(255, 255, 255, 0.4);
+  --text-color: #1c1c1c;
+  --text-secondary: #5f5f5f;
+  --shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.08), 0 1px 2px 0 rgba(0, 0, 0, 0.04);
+  
+  --accent-color: #0078d4;
+  --accent-light: rgba(0, 120, 212, 0.12);
+  --accent-hover: #005a9e;
+  
+  --taskbar-bg: rgba(243, 243, 243, 0.85);
+  --taskbar-border: rgba(255, 255, 255, 0.4);
+  --start-bg: rgba(243, 243, 243, 0.92);
+  
+  --input-bg: rgba(255, 255, 255, 0.9);
+  --input-border: rgba(0, 0, 0, 0.15);
+  --hover-bg: rgba(0, 0, 0, 0.06);
+  --active-bg: rgba(0, 0, 0, 0.1);
+  --card-bg: rgba(255, 255, 255, 0.6);
+  
+  --scrollbar-thumb: rgba(0, 0, 0, 0.2);
+}
+
+:root[data-theme="dark"] {
+  --desktop-bg-morning: linear-gradient(135deg, #301b3f 0%, #1a0f24 100%);
+  --desktop-bg-afternoon: linear-gradient(135deg, #0f2027 0%, #203a43 50%, #2c5364 100%);
+  --desktop-bg-evening: linear-gradient(135deg, #2c3e50 0%, #3498db 100%);
+  --desktop-bg-night: linear-gradient(135deg, #0b0d17 0%, #1c1e30 100%);
+
+  --window-bg: rgba(32, 32, 32, 0.72);
+  --window-border: rgba(255, 255, 255, 0.08);
+  --text-color: #f3f3f3;
+  --text-secondary: #a0a0a0;
+  --shadow: 0 12px 40px 0 rgba(0, 0, 0, 0.4), 0 2px 4px 0 rgba(0, 0, 0, 0.2);
+  
+  --accent-color: #60cdff;
+  --accent-light: rgba(96, 205, 255, 0.15);
+  --accent-hover: #4baedb;
+  
+  --taskbar-bg: rgba(32, 32, 32, 0.75);
+  --taskbar-border: rgba(255, 255, 255, 0.05);
+  --start-bg: rgba(32, 32, 32, 0.88);
+  
+  --input-bg: rgba(45, 45, 45, 0.7);
+  --input-border: rgba(255, 255, 255, 0.08);
+  --hover-bg: rgba(255, 255, 255, 0.08);
+  --active-bg: rgba(255, 255, 255, 0.15);
+  --card-bg: rgba(0, 0, 0, 0.2);
+  
+  --scrollbar-thumb: rgba(255, 255, 255, 0.15);
+}
+
+/* Base Styles */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  user-select: none;
+}
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  color: var(--text-color);
+  overflow: hidden;
+  height: 100vh;
+  width: 100vw;
+}
