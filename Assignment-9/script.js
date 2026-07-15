@@ -31,7 +31,7 @@ document.addEventListener("DOMContentLoaded", () => {
   updateGlobalStats();
   
   updateDynamicBackground();
-  setInterval(updateDynamicBackground, 60000); // Check background theme every minute
+  setInterval(updateDynamicBackground, 60000); 
 });
 
 
@@ -44,7 +44,7 @@ function initWindows() {
   const centerWindow = (win) => {
     if (win.classList.contains("maximized")) return;
     const desktopWidth = window.innerWidth;
-    const desktopHeight = window.innerHeight - 48; // subtract taskbar
+    const desktopHeight = window.innerHeight - 48; 
     const winWidth = Math.min(parseInt(window.getComputedStyle(win).width), desktopWidth - 20);
     const winHeight = Math.min(parseInt(window.getComputedStyle(win).height), desktopHeight - 20);
     
@@ -254,7 +254,7 @@ function initClock() {
     const seconds = String(now.getSeconds()).padStart(2, "0");
     const ampm = hours >= 12 ? "PM" : "AM";
     hours = hours % 12;
-    hours = hours ? hours : 12; // 0 hour should be 12
+    hours = hours ? hours : 12; 
     const formattedTime = `${hours}:${minutes}:${seconds} ${ampm}`;
 
     const options = { weekday: 'long', month: 'short', day: 'numeric', year: 'numeric' };
@@ -373,11 +373,11 @@ function initWeatherApp() {
   const getConditionSVG = (code) => {
     if (code === 0) return weatherSVGs.sunny;
     if (code >= 1 && code <= 3) return weatherSVGs.cloudy;
-    if (code === 45 || code === 48) return weatherSVGs.cloudy; // Fog
+    if (code === 45 || code === 48) return weatherSVGs.cloudy; 
     if ((code >= 51 && code <= 65) || (code >= 80 && code <= 82)) return weatherSVGs.rain;
     if ((code >= 71 && code <= 77) || (code >= 85 && code <= 86)) return weatherSVGs.snow;
     if (code >= 95) return weatherSVGs.storm;
-    return weatherSVGs.sunny; // Default
+    return weatherSVGs.sunny; 
   };
 
   const fetchWeather = async (lat, lon, cityName) => {
@@ -515,7 +515,7 @@ function initTodoApp() {
     starBtn.classList.remove("active");
   };
 
-  // Add event listener
+  
   addBtn.addEventListener("click", addTask);
   todoInput.addEventListener("keydown", (e) => {
     if (e.key === "Enter") addTask();
@@ -715,7 +715,7 @@ function initPomodoroApp() {
     }
   };
 
-  const totalCircumference = 2 * Math.PI * 90; // r = 90
+  const totalCircumference = 2 * Math.PI * 90; 
   progressCircle.style.strokeDasharray = `${totalCircumference}`;
   
   const updateProgressCircle = () => {

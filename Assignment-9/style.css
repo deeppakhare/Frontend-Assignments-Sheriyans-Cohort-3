@@ -1,3 +1,5 @@
+
+
 :root[data-theme="light"] {
   --desktop-bg-morning: linear-gradient(135deg, #ff9a9e 0%, #fecfef 99%, #fecfef 100%);
   --desktop-bg-afternoon: linear-gradient(135deg, #a1c4fd 0%, #c2e9fb 100%);
@@ -56,6 +58,7 @@
   --scrollbar-thumb: rgba(255, 255, 255, 0.15);
 }
 
+
 * {
   box-sizing: border-box;
   margin: 0;
@@ -71,7 +74,7 @@ body {
   width: 100vw;
 }
 
-* Desktop */
+
 .desktop {
   width: 100%;
   height: 100%;
@@ -84,10 +87,12 @@ body {
   flex-direction: column;
 }
 
+
 .desktop.bg-morning { background-image: var(--desktop-bg-morning); }
 .desktop.bg-afternoon { background-image: var(--desktop-bg-afternoon); }
 .desktop.bg-evening { background-image: var(--desktop-bg-evening); }
 .desktop.bg-night { background-image: var(--desktop-bg-night); }
+
 
 .desktop-icons {
   padding: 24px;
@@ -162,11 +167,13 @@ body {
   max-width: 80px;
 }
 
+
 .todo-icon-color { background: linear-gradient(135deg, #0078d4, #005a9e); }
 .planner-icon-color { background: linear-gradient(135deg, #e81123, #b3101b); }
 .quote-icon-color { background: linear-gradient(135deg, #107c41, #0b5930); }
 .pomodoro-icon-color { background: linear-gradient(135deg, #ff8c00, #d83b01); }
 .goals-icon-color { background: linear-gradient(135deg, #8764b8, #5c2d91); }
+
 
 #window-container {
   width: 100%;
@@ -175,6 +182,7 @@ body {
   z-index: 20;
   pointer-events: none; 
 }
+
 
 .window {
   position: absolute;
@@ -205,6 +213,7 @@ body {
   transform: scale(0.94) translateY(30px);
   pointer-events: none;
 }
+
 
 .window-header {
   height: 38px;
@@ -271,6 +280,7 @@ body {
   border-radius: 0;
 }
 
+
 .window-body {
   flex: 1;
   overflow: hidden;
@@ -279,6 +289,7 @@ body {
   flex-direction: column;
 }
 
+
 .app-layout {
   padding: 20px;
   height: 100%;
@@ -286,6 +297,7 @@ body {
   flex-direction: column;
   overflow: hidden;
 }
+
 
 .todo-input-bar {
   display: flex;
@@ -341,6 +353,7 @@ body {
   height: 18px;
 }
 
+
 .primary-btn, .secondary-btn, .danger-btn {
   padding: 8px 16px;
   border-radius: 6px;
@@ -390,6 +403,7 @@ body {
   background: #b3101b;
 }
 
+
 .todo-container-scroll {
   flex: 1;
   overflow-y: auto;
@@ -420,6 +434,7 @@ body {
   padding-bottom: 4px;
   border-bottom: 1px solid var(--window-border);
 }
+
 
 .todo-list {
   list-style: none;
@@ -491,7 +506,6 @@ body {
   transition: all 0.2s ease;
 }
 
-
 .todo-item.completed .todo-text {
   text-decoration: line-through;
   color: var(--text-secondary);
@@ -544,6 +558,7 @@ body {
 .todo-item-btn.delete-btn svg {
   fill: none;
 }
+
 
 .planner-info {
   font-size: 12px;
@@ -631,6 +646,7 @@ body {
   height: 14px;
 }
 
+
 .quote-layout {
   justify-content: center;
   align-items: center;
@@ -689,6 +705,7 @@ body {
 @keyframes spin {
   100% { transform: rotate(360deg); }
 }
+
 
 .pomodoro-layout {
   align-items: center;
@@ -764,6 +781,7 @@ body {
   gap: 10px;
 }
 
+
 .goals-progress-panel {
   background: var(--card-bg);
   border: 1px solid var(--window-border);
@@ -805,6 +823,7 @@ body {
   width: 0%;
   transition: width 0.4s cubic-bezier(0.1, 0.9, 0.2, 1);
 }
+
 
 .start-menu {
   position: absolute;
@@ -902,6 +921,7 @@ body {
   height: 14px;
 }
 
+
 .stats-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -942,6 +962,7 @@ body {
   background: #107c41;
   box-shadow: 0 0 6px #107c41;
 }
+
 
 .start-menu-footer {
   height: 60px;
@@ -1006,6 +1027,7 @@ body {
   height: 16px;
 }
 
+
 .taskbar {
   height: 48px;
   background: var(--taskbar-bg);
@@ -1022,6 +1044,7 @@ body {
   right: 0;
   z-index: 9999;
 }
+
 
 .start-button-container {
   display: flex;
@@ -1071,6 +1094,7 @@ body {
   overflow: hidden;
 }
 
+
 .taskbar-tab {
   background: var(--card-bg);
   border: 1px solid var(--window-border);
@@ -1117,11 +1141,13 @@ body {
   border-radius: 2px 2px 0 0;
 }
 
+
 .system-tray {
   display: flex;
   align-items: center;
   gap: 8px;
 }
+
 
 .tray-weather-widget {
   display: flex;
@@ -1165,6 +1191,7 @@ body {
   text-overflow: ellipsis;
 }
 
+
 .tray-clock-widget {
   display: flex;
   flex-direction: column;
@@ -1190,6 +1217,7 @@ body {
   color: var(--text-secondary);
   font-size: 9.5px;
 }
+
 
 @media (max-width: 768px) {
   .start-menu {

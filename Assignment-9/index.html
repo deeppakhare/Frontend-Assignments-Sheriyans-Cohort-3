@@ -418,6 +418,59 @@
               </svg>
               <span>Daily Goals</span>
             </div>
+
+      <div class="desktop-widgets" id="desktop-widgets">
+        <div class="widget-card widget-clock">
+          <div class="widget-greeting" id="widget-greeting">Good Day</div>
+          <div class="widget-time" id="widget-time-display">12:00:00 PM</div>
+          <div class="widget-date" id="widget-date-display">Wednesday, July 15, 2026</div>
+        </div>
+
+        <div class="widget-card widget-weather" id="widget-weather-card">
+          <div class="widget-weather-main">
+            <div class="widget-weather-icon" id="widget-weather-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="4"></circle>
+                <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"></path>
+              </svg>
+            </div>
+            <div class="widget-weather-temp-group">
+              <span class="widget-weather-temp" id="widget-weather-temp">--°C</span>
+              <span class="widget-weather-desc" id="widget-weather-desc">Locating...</span>
+            </div>
+          </div>
+          <div class="widget-weather-details">
+            <div class="weather-detail-item">
+              <i class="ri-map-pin-2-line"></i>
+              <span id="widget-weather-city">Locating...</span>
+            </div>
+            <div class="weather-detail-item">
+              <i class="ri-droplet-line"></i>
+              <span id="widget-weather-humidity">Humidity: --%</span>
+            </div>
+            <div class="weather-detail-item">
+              <i class="ri-windy-line"></i>
+              <span id="widget-weather-wind">Wind: -- km/h</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="widget-card widget-quote">
+          <div class="widget-quote-header">
+            <span class="widget-title"><i class="ri-double-quotes-l"></i> Daily Inspiration</span>
+            <button class="widget-refresh-btn" id="widget-quote-refresh" title="Get new quote" aria-label="Refresh quote">
+              <i class="ri-refresh-line"></i>
+            </button>
+          </div>
+          <div class="widget-quote-body">
+            <p class="widget-quote-text" id="widget-quote-text">Loading inspiration...</p>
+            <span class="widget-quote-author" id="widget-quote-author">— Wisdom</span>
+          </div>
+        </div>
+      </div>
+
+
+
             <div class="window-controls">
               <button class="win-btn minimize" aria-label="Minimize Window">
                 <i class="ri-subtract-line"></i>
