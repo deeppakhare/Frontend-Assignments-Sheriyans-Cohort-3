@@ -475,6 +475,146 @@
           </div>
         </div>
       </div>
+      
+      <!-- Start Menu Overlay -->
+      <div id="start-menu" class="start-menu hidden">
+        <div class="start-menu-grid">
+          <div class="start-section-title">Quick Control Center</div>
 
+          <!-- Theme Mode Switches -->
+          <div class="start-control-box">
+            <div class="control-box-header">Appearance Mode</div>
+            <div class="theme-switcher-btns">
+              <button id="theme-light-btn" class="theme-btn">
+                <i class="ri-sun-line"></i>
+                <span>Light Mode</span>
+              </button>
+              <button id="theme-dark-btn" class="theme-btn active">
+                <i class="ri-moon-line"></i>
+                <span>Dark Mode</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- Quick Productivity Overview -->
+          <div class="start-control-box">
+            <div class="control-box-header">Productivity Dashboard Summary</div>
+            <div class="stats-grid">
+              <div class="stat-card">
+                <div id="stat-todos-num" class="stat-number">0</div>
+                <div class="stat-label">Active Todos</div>
+              </div>
+              <div class="stat-card">
+                <div id="stat-goals-ratio" class="stat-number">0%</div>
+                <div class="stat-label">Goals Complete</div>
+              </div>
+              <div class="stat-card">
+                <div id="stat-time-slot" class="stat-number">—</div>
+                <div class="stat-label">Planner Slots Filled</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Time of Day Custom Background Indicator -->
+          <div class="start-control-box">
+            <div class="control-box-header">Dynamic Background Theme</div>
+            <div id="bg-state-indicator" class="bg-state-indicator">
+              <span class="indicator-dot"></span>
+              <span id="bg-state-text">Detecting Time of Day...</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Start Menu Footer -->
+        <div class="start-menu-footer">
+          <div class="user-profile">
+            <div class="user-avatar"><i class="ri-user-3-line"></i></div>
+            <div class="user-details">
+              <div class="user-name">Welcome User</div>
+              <div class="user-status">Active</div>
+            </div>
+          </div>
+          <button
+            id="clear-all-storage"
+            class="power-btn"
+            title="Reset All Dashboard Data"
+          >
+            <i class="ri-restart-line"></i>
+          </button>
+        </div>
+      </div>
+
+      <!-- Taskbar -->
+      <div class="taskbar">
+        <!-- Start Button -->
+        <button
+          id="start-btn"
+          class="taskbar-btn start-button-container"
+          aria-label="Start Menu"
+          aria-haspopup="true"
+          aria-expanded="false"
+        >
+          <svg
+            class="windows-logo"
+            viewBox="0 0 24 24"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <rect x="2" y="2" width="9.5" height="9.5" fill="currentColor" />
+            <rect x="12.5" y="2" width="9.5" height="9.5" fill="currentColor" />
+            <rect x="2" y="12.5" width="9.5" height="9.5" fill="currentColor" />
+            <rect
+              x="12.5"
+              y="12.5"
+              width="9.5"
+              height="9.5"
+              fill="currentColor"
+            />
+          </svg>
+        </button>
+
+        <!-- Apps list (Taskbar Tabs) -->
+        <div id="taskbar-tabs" class="taskbar-tabs">
+          <!-- Buttons will be dynamically inserted here when apps open/minimize -->
+        </div>
+
+        <!-- System Tray -->
+        <div class="system-tray">
+          <!-- Weather Widget -->
+          <div
+            id="weather-tray"
+            class="tray-weather-widget"
+            title="Click to refresh weather info"
+          >
+            <span id="weather-icon-placeholder" class="weather-icon-span">
+              <!-- Dynamic SVG inserted here -->
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <circle cx="12" cy="12" r="4"></circle>
+                <path
+                  d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"
+                ></path>
+              </svg>
+            </span>
+            <div class="weather-info">
+              <div id="weather-temp" class="weather-temp">--°C</div>
+              <div id="weather-city" class="weather-city">Locating...</div>
+            </div>
+          </div>
+
+          <!-- Date & Time Widget -->
+          <div id="clock-tray" class="tray-clock-widget">
+            <span id="clock-time">10:00 AM</span>
+            <span id="clock-date">Wednesday, Jul 15</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
 </body>
 </html>
