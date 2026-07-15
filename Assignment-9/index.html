@@ -1,11 +1,144 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
+ <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Assigenment-9</title>
+    <!-- Google Fonts: Inter & Segoe UI fallback -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/remixicon@4.9.0/fonts/remixicon.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
 <body>
-    <h1>Assignemt 9</h1>
+     <!-- Desktop Environment -->
+    <div id="desktop" class="desktop">
+      <!-- Desktop Icons Grid -->
+      <div class="desktop-icons">
+        <!-- Todo Shortcut -->
+        <button
+          class="desktop-icon"
+          id="shortcut-todo"
+          aria-label="Open Todo List"
+        >
+          <div class="icon-wrapper todo-icon-color">
+            <svg
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2.5"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <polyline points="9 11 12 14 22 4"></polyline>
+              <path
+                d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"
+              ></path>
+            </svg>
+          </div>
+          <span class="icon-label">Todo</span>
+        </button>
+
+        <!-- Daily Planner Shortcut -->
+        <button
+          class="desktop-icon"
+          id="shortcut-planner"
+          aria-label="Open Daily Planner"
+        >
+          <div class="icon-wrapper planner-icon-color">
+            <svg
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2.5"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+              <line x1="16" y1="2" x2="16" y2="6"></line>
+              <line x1="8" y1="2" x2="8" y2="6"></line>
+              <line x1="3" y1="10" x2="21" y2="10"></line>
+            </svg>
+          </div>
+          <span class="icon-label">Daily Planner</span>
+        </button>
+
+        <!-- Motivation Quote Shortcut -->
+        <button
+          class="desktop-icon"
+          id="shortcut-quote"
+          aria-label="Open Motivation Quote"
+        >
+          <div class="icon-wrapper quote-icon-color">
+            <svg
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2.5"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <path
+                d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"
+              ></path>
+            </svg>
+          </div>
+          <span class="icon-label">Motivation</span>
+        </button>
+
+        <!-- Pomodoro Timer Shortcut -->
+        <button
+          class="desktop-icon"
+          id="shortcut-pomodoro"
+          aria-label="Open Pomodoro Timer"
+        >
+          <div class="icon-wrapper pomodoro-icon-color">
+            <svg
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2.5"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <circle cx="12" cy="12" r="10"></circle>
+              <polyline points="12 6 12 12 16 14"></polyline>
+            </svg>
+          </div>
+          <span class="icon-label">Pomodoro</span>
+        </button>
+
+        <!-- Daily Goals Shortcut -->
+        <button
+          class="desktop-icon"
+          id="shortcut-goals"
+          aria-label="Open Daily Goals"
+        >
+          <div class="icon-wrapper goals-icon-color">
+            <svg
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2.5"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <circle cx="12" cy="8" r="7"></circle>
+              <polyline
+                points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"
+              ></polyline>
+            </svg>
+          </div>
+          <span class="icon-label">Daily Goals</span>
+        </button>
+      </div>
+
 </body>
 </html>
