@@ -71,3 +71,435 @@ body {
   height: 100vh;
   width: 100vw;
 }
+
+* Desktop */
+.desktop {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  overflow: hidden;
+  background-size: cover;
+  background-position: center;
+  transition: background 1.5s cubic-bezier(0.25, 0.8, 0.25, 1);
+  display: flex;
+  flex-direction: column;
+}
+
+/* Dynamic Background Themes */
+.desktop.bg-morning { background-image: var(--desktop-bg-morning); }
+.desktop.bg-afternoon { background-image: var(--desktop-bg-afternoon); }
+.desktop.bg-evening { background-image: var(--desktop-bg-evening); }
+.desktop.bg-night { background-image: var(--desktop-bg-night); }
+
+/* Desktop Shortcuts Grid */
+.desktop-icons {
+  padding: 24px;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, 90px);
+  grid-auto-rows: 95px;
+  grid-auto-flow: column;
+  gap: 12px;
+  align-content: start;
+  height: calc(100vh - 48px);
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 10;
+}
+
+.desktop-icon {
+  background: none;
+  border: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 8px;
+  border-radius: 6px;
+  cursor: pointer;
+  outline: none;
+  border: 1px solid transparent;
+  transition: all 0.2s ease;
+}
+
+.desktop-icon:hover {
+  background: var(--hover-bg);
+  border: 1px solid var(--window-border);
+}
+
+.desktop-icon:active {
+  background: var(--active-bg);
+  transform: scale(0.96);
+}
+
+.icon-wrapper {
+  width: 48px;
+  height: 48px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 6px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+  color: #fff;
+  transition: transform 0.2s ease;
+}
+
+.desktop-icon:hover .icon-wrapper {
+  transform: translateY(-2px);
+}
+
+.icon-wrapper svg {
+  width: 24px;
+  height: 24px;
+}
+
+.icon-label {
+  font-size: 11.5px;
+  color: #fff;
+  text-align: center;
+  text-shadow: 0 1px 3px rgba(0,0,0,0.8);
+  font-weight: 500;
+  word-break: break-word;
+  max-width: 80px;
+}
+
+/* Brand Colors for Icons */
+.todo-icon-color { background: linear-gradient(135deg, #0078d4, #005a9e); }
+.planner-icon-color { background: linear-gradient(135deg, #e81123, #b3101b); }
+.quote-icon-color { background: linear-gradient(135deg, #107c41, #0b5930); }
+.pomodoro-icon-color { background: linear-gradient(135deg, #ff8c00, #d83b01); }
+.goals-icon-color { background: linear-gradient(135deg, #8764b8, #5c2d91); }
+
+/* Windows Container */
+#window-container {
+  width: 100%;
+  height: calc(100% - 48px);
+  position: relative;
+  z-index: 20;
+  pointer-events: none; /* Let clicks pass to desktop if no window */
+}
+
+/* Single Window Style */
+.window {
+  position: absolute;
+  width: 660px;
+  height: 490px;
+  min-width: 320px;
+  min-height: 250px;
+  background: var(--window-bg);
+  border: 1px solid var(--window-border);
+  border-radius: 8px;
+  box-shadow: var(--shadow);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  backdrop-filter: blur(24px) saturate(120%);
+  -webkit-backdrop-filter: blur(24px) saturate(120%);
+  pointer-events: auto; /* Re-enable clicks */
+  transition: transform 0.3s cubic-bezier(0.1, 0.9, 0.2, 1), opacity 0.25s ease, box-shadow 0.2s ease;
+}
+
+.window.active-window {
+  box-shadow: 0 16px 48px 0 rgba(0, 0, 0, 0.45);
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+.window.hidden {
+  opacity: 0;
+  transform: scale(0.94) translateY(30px);
+  pointer-events: none;
+}
+
+/* Window Header / Title Bar */
+.window-header {
+  height: 38px;
+  background: rgba(0, 0, 0, 0.05);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 12px;
+  cursor: move;
+  border-bottom: 1px solid var(--window-border);
+}
+
+.window-header-title {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12.5px;
+  font-weight: 500;
+  color: var(--text-color);
+}
+
+.window-app-icon {
+  width: 16px;
+  height: 16px;
+  border-radius: 3px;
+  padding: 2px;
+  color: #fff;
+}
+
+.window-controls {
+  display: flex;
+  gap: 4px;
+}
+
+.win-btn {
+  background: none;
+  border: none;
+  width: 28px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-color);
+  font-size: 10px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background 0.15s ease;
+}
+
+.win-btn:hover {
+  background: var(--hover-bg);
+}
+
+.win-btn.close:hover {
+  background: #e81123 !important;
+  color: #fff !important;
+}
+
+.window.maximized {
+  width: 100% !important;
+  height: 100% !important;
+  top: 0 !important;
+  left: 0 !important;
+  border-radius: 0;
+}
+
+/* Window Body */
+.window-body {
+  flex: 1;
+  overflow: hidden;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Common App Layout Inside Windows */
+.app-layout {
+  padding: 20px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+/* Todo / Goal Input Bar */
+.todo-input-bar {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 16px;
+  flex-shrink: 0;
+}
+
+.todo-input-bar input {
+  flex: 1;
+  padding: 10px 14px;
+  background: var(--input-bg);
+  border: 1px solid var(--input-border);
+  border-radius: 6px;
+  color: var(--text-color);
+  font-size: 14px;
+  outline: none;
+  transition: all 0.2s ease;
+}
+
+.todo-input-bar input:focus {
+  border-color: var(--accent-color);
+  box-shadow: 0 0 0 2px var(--accent-light);
+}
+
+.todo-star-btn {
+  width: 40px;
+  height: 40px;
+  background: var(--input-bg);
+  border: 1px solid var(--input-border);
+  border-radius: 6px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-secondary);
+  transition: all 0.2s ease;
+}
+
+.todo-star-btn:hover {
+  background: var(--hover-bg);
+  color: #ffb900;
+}
+
+.todo-star-btn.active {
+  color: #ffb900;
+  fill: #ffb900;
+  border-color: #ffb900;
+}
+
+.todo-star-btn svg {
+  width: 18px;
+  height: 18px;
+}
+
+/* Custom Standard Buttons */
+.primary-btn, .secondary-btn, .danger-btn {
+  padding: 8px 16px;
+  border-radius: 6px;
+  font-size: 13.5px;
+  font-weight: 550;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  outline: none;
+  transition: all 0.2s ease;
+}
+
+.primary-btn {
+  background: var(--accent-color);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  color: #fff;
+}
+
+.primary-btn:hover {
+  background: var(--accent-hover);
+}
+
+.secondary-btn {
+  background: var(--input-bg);
+  border: 1px solid var(--input-border);
+  color: var(--text-color);
+}
+
+.secondary-btn:hover:not(:disabled) {
+  background: var(--hover-bg);
+}
+
+.secondary-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.danger-btn {
+  background: #e81123;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  color: #fff;
+}
+
+.danger-btn:hover {
+  background: #b3101b;
+}
+
+/* Scroll Containers */
+.todo-container-scroll {
+  flex: 1;
+  overflow-y: auto;
+  padding-right: 4px;
+}
+
+.todo-container-scroll::-webkit-scrollbar,
+.planner-grid::-webkit-scrollbar {
+  width: 6px;
+}
+
+.todo-container-scroll::-webkit-scrollbar-thumb,
+.planner-grid::-webkit-scrollbar-thumb {
+  background: var(--scrollbar-thumb);
+  border-radius: 3px;
+}
+
+.todo-section {
+  margin-bottom: 20px;
+}
+
+.todo-section h3 {
+  font-size: 12.5px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: var(--text-secondary);
+  margin-bottom: 8px;
+  padding-bottom: 4px;
+  border-bottom: 1px solid var(--window-border);
+}
+
+/* Todo Task List items */
+.todo-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.todo-item {
+  background: var(--card-bg);
+  border: 1px solid var(--window-border);
+  border-radius: 6px;
+  padding: 10px 12px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  animation: slideIn 0.2s ease;
+}
+
+@keyframes slideIn {
+  from { transform: translateY(10px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+.todo-item-left {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex: 1;
+  overflow: hidden;
+}
+
+.todo-checkbox {
+  width: 18px;
+  height: 18px;
+  border-radius: 4px;
+  border: 1.5px solid var(--text-secondary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.todo-item.completed .todo-checkbox {
+  background: var(--accent-color);
+  border-color: var(--accent-color);
+}
+
+.todo-checkbox svg {
+  width: 12px;
+  height: 12px;
+  color: #fff;
+  opacity: 0;
+  transition: opacity 0.15s ease;
+}
+
+.todo-item.completed .todo-checkbox svg {
+  opacity: 1;
+}
+
+.todo-text {
+  font-size: 13.5px;
+  color: var(--text-color);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  transition: all 0.2s ease;
+}
