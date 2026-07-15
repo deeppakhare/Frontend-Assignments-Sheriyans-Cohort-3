@@ -139,6 +139,83 @@
           <span class="icon-label">Daily Goals</span>
         </button>
       </div>
+      <!-- Window Manager for Feature Windows -->
+      <div id="window-container">
+        <!-- Todo Window -->
+        <div id="window-todo" class="window hidden" data-app="todo">
+          <div class="window-header">
+            <div class="window-header-title">
+              <svg
+                class="window-app-icon todo-icon-color"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2.5"
+              >
+                <polyline points="9 11 12 14 22 4"></polyline>
+                <path
+                  d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"
+                ></path>
+              </svg>
+              <span>Todo List</span>
+            </div>
+            <div class="window-controls">
+              <button class="win-btn minimize" aria-label="Minimize Window">
+                <i class="ri-subtract-line"></i>
+              </button>
+              <button class="win-btn maximize" aria-label="Maximize Window">
+                <i class="ri-square-line"></i>
+              </button>
+              <button class="win-btn close" aria-label="Close Window">
+                <i class="ri-close-large-line"></i>
+              </button>
+            </div>
+          </div>
+          <div class="window-body">
+            <div class="app-layout">
+              <div class="todo-input-bar">
+                <input
+                  type="text"
+                  id="todo-input"
+                  placeholder="Type a task and press Enter..."
+                  aria-label="Task content"
+                />
+                <button
+                  id="todo-star-btn"
+                  class="todo-star-btn"
+                  title="Mark as Important"
+                  aria-label="Mark task as important"
+                >
+                  <svg
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                  >
+                    <polygon
+                      points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"
+                    ></polygon>
+                  </svg>
+                </button>
+                <button id="add-todo-btn" class="primary-btn">Add Task</button>
+              </div>
+
+              <div class="todo-container-scroll">
+                <div class="todo-section">
+                  <h3>Active Tasks</h3>
+                  <ul id="todo-list-active" class="todo-list"></ul>
+                </div>
+                <div class="todo-section">
+                  <h3>Completed Tasks</h3>
+                  <ul
+                    id="todo-list-completed"
+                    class="todo-list completed-style"
+                  ></ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
 
 </body>
 </html>
