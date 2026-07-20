@@ -1463,5 +1463,19 @@ body {
     font-size: 10px;
   }
   
-
+  .taskbar-tabs {
+    margin: 0 8px;
+  }
+  
+  .taskbar-tab span {
+    display: none;
+  }
+  
+  .tray-weather-widget {
+    padding: 0 4px;
+  }
+  
+  .weather-info {
+    display: none;
+  }
 }
