@@ -1018,8 +1018,5 @@ function updateGlobalStats() {
     statGoalsRatio.textContent = `${goalsPercent}%`;
   }
 
-  const plannerData = JSON.parse(localStorage.getItem("productivity-planner")) || {};
-  const entriesCount = Object.values(plannerData).filter(val => val.trim() !== "").length;
-  const statTimeSlot = document.getElementById("stat-time-slot");
-  if (statTimeSlot) statTimeSlot.textContent = entriesCount;
+
 }
