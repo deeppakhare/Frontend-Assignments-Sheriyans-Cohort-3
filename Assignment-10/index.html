@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SkyMart — Premium Shopping Experience</title>
+  <meta name="description" content="SkyMart offers a premium online shopping experience with a wide range of products across beauty, electronics, furniture, and more. Fast delivery, great prices." />
+  <meta name="keywords" content="SkyMart, online shopping, e-commerce, beauty, electronics, furniture, groceries" />
+  <meta property="og:title" content="SkyMart — Premium Shopping Experience" />
+  <meta property="og:description" content="Discover thousands of products at SkyMart. Shop beauty, electronics, furniture, and more." />
+  <meta property="og:type" content="website" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- Notification Toast -->
+  <div id="toast-container" aria-live="polite"></div>
+
+  <!-- Cart Sidebar Overlay -->
+  <div id="cart-overlay" class="cart-overlay" role="dialog" aria-modal="true" aria-label="Shopping Cart"></div>
+
+  <!-- Cart Sidebar -->
+  <aside id="cart-sidebar" class="cart-sidebar" aria-label="Shopping Cart">
+    <div class="cart-header">
+      <div class="cart-title">
+        <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"/></svg>
+        Your Cart
+      </div>
+      <button id="close-cart-btn" class="close-cart-btn" aria-label="Close cart">
+        <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/></svg>
+      </button>
+    </div>
+    <div id="cart-items-container" class="cart-items-container"></div>
+    <div id="cart-footer" class="cart-footer" style="display:none;">
+      <div class="cart-summary">
+        <div class="summary-row">
+          <span>Subtotal</span>
+          <span id="cart-subtotal">$0.00</span>
+        </div>
+        <div class="summary-row">
+          <span>Shipping</span>
+          <span class="free-shipping">FREE</span>
+        </div>
+        <div class="summary-row total-row">
+          <span>Total</span>
+          <span id="cart-total">$0.00</span>
+        </div>
+      </div>
+      <button id="checkout-btn" class="btn-checkout">Proceed to Checkout</button>
+      <button id="continue-shopping-btn" class="btn-continue">Continue Shopping</button>
+    </div>
+  </aside>
