@@ -247,3 +247,114 @@ async function loadAllProducts() {
     state.allProducts = [];
   }
 }
+
+
+async function loadProductById(id) {
+  try {
+    return await fetchJSON(`${API_BASE}/products/${id}`);
+  } catch (e) {
+    console.error('Failed to load product', e);
+    return null;
+  }
+}
+
+// ===================== HELPERS =====================
+function renderStars(rating) {
+  const full = Math.floor(rating);
+  const half = rating % 1 >= 0.5;
+  let stars = '★'.repeat(full);
+  if (half) stars += '½';
+  stars += '☆'.repeat(5 - full - (half ? 1 : 0));
+  return stars;
+}
+
+function renderProductCard(product, compact = false) {
+  const isWishlisted = state.wishlist.includes(product.id);
+  const originalPrice = (product.price / (1 - product.discountPercentage / 100)).toFixed(2);
+  const hasDiscount = product.discountPercentage > 2;
+
+  return `
+    <article class="product-card" role="article" aria-label="${product.title}" data-product-id="${product.id}" onclick="navigateToProduct(${product.id})">
+      <div class="product-img-wrap">
+        <img class="product-img" src="${product.thumbnail}" alt="${product.title}" loading="lazy" />
+        ${hasDiscount ? `<span class="product-badge badge-discount">-${Math.round(product.discountPercentage)}%</span>` : ''}
+        <button class="product-wishlist ${isWishlisted ? 'active' : ''}"
+          data-wishlist="${product.id}"
+          onclick="event.stopPropagation(); toggleWishlist(${product.id})"
+          aria-label="${isWishlisted ? 'Remove from wishlist' : 'Add to wishlist'}">
+          ${isWishlisted ? '❤️' : '🤍'}
+        </button>
+      </div>
+      <div class="product-body">
+        <div class="product-category">${product.category}</div>
+        <h3 class="product-title">${product.title}</h3>
+        <div class="product-rating">
+          <span class="stars">${renderStars(product.rating)}</span>
+          <span class="rating-count">(${product.rating.toFixed(1)})</span>
+        </div>
+        <div class="product-footer">
+          <div class="price-wrap">
+            <span class="product-price">$${product.price.toFixed(2)}</span>
+            ${hasDiscount ? `<span class="product-price-original">$${originalPrice}</span>` : ''}
+          </div>
+          <button class="add-to-cart-btn"
+            onclick="event.stopPropagation(); addToCart(${JSON.stringify(product).replace(/"/g, '&quot;')})"
+            aria-label="Add ${product.title} to cart">
+            + Cart
+          </button>
+        </div>
+      </div>
+    </article>`;
+}
+
+function renderSkeletonGrid(count = 8) {
+  return Array.from({ length: count })
+    .map(
+      () => `
+    <div class="skeleton-card">
+      <div class="skeleton skeleton-img"></div>
+      <div class="skeleton-body">
+        <div class="skeleton skeleton-line short"></div>
+        <div class="skeleton skeleton-line medium"></div>
+        <div class="skeleton skeleton-line"></div>
+      </div>
+    </div>`
+    )
+    .join('');
+}
+
+// ===================== HOME PAGE =====================
+function renderHomeCategories(categories) {
+  const grid = $('home-categories-grid');
+  if (!grid) return;
+  const display = categories.slice(0, 8);
+  grid.innerHTML = display
+    .map((cat) => {
+      const slug = typeof cat === 'string' ? cat : cat.slug || cat.name;
+      const name = typeof cat === 'string' ? cat : cat.name || cat.slug;
+      const icon = CATEGORY_ICONS[slug] || CATEGORY_ICONS.default;
+      const count = state.allProducts.filter((p) => p.category === slug).length;
+      return `
+        <button class="category-card" onclick="navigateToCategory('${slug}')" aria-label="Browse ${name}">
+          <div class="category-icon">${icon}</div>
+          <div class="category-name">${name}</div>
+          <div class="category-count">${count} products</div>
+        </button>`;
+    })
+    .join('');
+}
+
+function renderHomeFeatured() {
+  const grid = $('home-products-grid');
+  if (!grid) return;
+  grid.innerHTML = renderSkeletonGrid(8);
+  const featured = state.allProducts.sort(() => Math.random() - 0.5).slice(0, 8);
+  setTimeout(() => {
+    grid.innerHTML = featured.map((p) => renderProductCard(p)).join('');
+  }, 400);
+}
+
+async function initHomePage() {
+  renderHomeCategories(state.categories);
+  renderHomeFeatured();
+}
