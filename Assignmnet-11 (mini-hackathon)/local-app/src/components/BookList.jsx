@@ -6,7 +6,7 @@ export default function BookList({ startEditing }) {
   const books = useSelector((state) => state.books.list);
   const search = useSelector((state) => state.books.search);
 
-  // simple search on title and author
+
   const shownBooks = books.filter(
     (book) =>
       book.title.toLowerCase().includes(search.toLowerCase()) ||

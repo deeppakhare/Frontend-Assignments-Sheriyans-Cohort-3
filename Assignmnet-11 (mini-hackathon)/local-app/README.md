@@ -124,10 +124,6 @@ Every time a book is added, edited, deleted, issued, or returned, the updated li
 
 When the app loads, it reads from `localStorage`. If no data is found, it shows three default starter books.
 
-### Search Feature
-
-The search bar filters books by matching the title or author with the typed text. It is case-insensitive.
-
 ### Issue / Return Feature
 
 Each book has a status:
@@ -138,19 +134,6 @@ Each book has a status:
 Clicking the **Issue** button changes status to `issued`.  
 Clicking the **Return** button changes it back to `available`.
 
----
-
-## Sample Default Books
-
-When you open the app for the first time, these books appear:
-
-1. **The Midnight Library** by Matt Haig — Fiction, 2020
-2. **Atomic Habits** by James Clear — Self Help, 2018 (Issued)
-3. **Clean Code** by Robert C. Martin — Technology, 2008
-
-You can delete or edit them anytime.
-
----
 
 ## Key Concepts Used
 
@@ -161,26 +144,18 @@ You can delete or edit them anytime.
 - **Tailwind CSS** for layout and styling
 - **Vite** for fast development and build
 
----
 
-## Future Improvements You Can Add
+## Links
 
-If you want to practice more, try adding:
+Live:- [Live](https://mini-hackathon-azure.vercel.app/)
 
-- Filter books by genre or status
-- Sort books by title or year
-- Form validation with better error messages
-- Export library data to JSON file
-- Import library data from JSON file
-- Dark mode toggle
-- Pagination for large libraries
-- Toast notifications for actions
+Github :- [Github](https://github.com/deeppakhare/Frontend-Assignments-Sheriyans-Cohort-3/tree/261aa4ea4daebded289d21a0a23950f686aa7b3b/Assignmnet-11%20(mini-hackathon)/local-app)
 
----
+Documentaion :- [Document]()
 
 ## Author
 
-This project was created as a beginner-friendly mini hackathon project to learn **Redux Toolkit** and **React state management**.
+This project was created for mini hackathon project to learn **Redux Toolkit**.
 
 ---
 

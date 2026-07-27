@@ -10,7 +10,7 @@ export default function App() {
   const search = useSelector((state) => state.books.search);
   const [editingBook, setEditingBook] = useState(null);
 
-  // load the saved books when the page opens
+
   useEffect(() => {
     dispatch(loadBooks());
   }, [dispatch]);
