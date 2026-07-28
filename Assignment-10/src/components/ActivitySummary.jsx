@@ -1,70 +1,67 @@
 import React, { useContext } from "react";
 import { ShoppingCart, Wallet, Star, Tags } from "lucide-react";
 import { MyStore } from "../context/MyContext";
-import { set } from "react-hook-form";
 
 const ActivitySummary = () => {
-  let { total, cartItems, apiData } = useContext(MyStore);
+  const { total, cartItems, apiData } = useContext(MyStore);
+
+  const cartCount = cartItems?.reduce((acc, item) => acc + item.quantity, 0) || 0;
+  const topCount = apiData?.filter((item) => item.rating?.rate > 3).length || 0;
+  const categoryCount = new Set(apiData?.map((item) => item.category)).size || 0;
 
   const summary = [
     {
       id: 1,
-      icon: <ShoppingCart size={20} />,
-      value: `${cartItems.length ? cartItems.length : 0}`,
+      icon: <ShoppingCart size={18} />,
+      value: `${cartCount}`,
       title: "Cart Items",
-      subtitle: "In your bag",
-      color: "bg-cyan-500/10 text-cyan-400",
+      subtitle: "Items in cart",
+      badgeColor: "bg-blue-500/10 text-blue-400 border-blue-500/20",
     },
     {
       id: 2,
-      icon: <Wallet size={20} />,
-      value: `$${total.toFixed(2)}`,
-      title: "Cart Value",
-      subtitle: "Ready to checkout",
-      color: "bg-green-500/10 text-green-400",
+      icon: <Wallet size={18} />,
+      value: `$${(total || 0).toFixed(2)}`,
+      title: "Subtotal",
+      subtitle: "Current total",
+      badgeColor: "bg-emerald-500/10 text-emerald-400 border-emerald-500/20",
     },
     {
       id: 3,
-      icon: <Star size={20} />,
-      value: `${apiData.filter((item) => item.rating.rate > 3).length}`,
-      title: "Top Products",
-      subtitle: "Highly rated",
-      color: "bg-yellow-500/10 text-yellow-400",
+      icon: <Star size={18} />,
+      value: `${topCount}`,
+      title: "Top Rated",
+      subtitle: "4+ Star products",
+      badgeColor: "bg-amber-500/10 text-amber-400 border-amber-500/20",
     },
     {
       id: 4,
-      icon: <Tags size={20} />,
-      value: `${new Set(apiData.map((item) => item.category)).size}`,
+      icon: <Tags size={18} />,
+      value: `${categoryCount}`,
       title: "Categories",
-      subtitle: "To explore",
-      color: "bg-orange-500/10 text-orange-400",
+      subtitle: "Available sections",
+      badgeColor: "bg-indigo-500/10 text-indigo-400 border-indigo-500/20",
     },
   ];
 
   return (
-    <section className="my-8">
-      <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 xl:grid-cols-4">
+    <section className="my-6">
+      <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
         {summary.map((item) => (
           <div
             key={item.id}
-            className="rounded-2xl border border-slate-800 bg-[#151D31] p-5 transition-all duration-300 hover:-translate-y-1 hover:border-cyan-500"
+            className="flex items-center gap-4 rounded-xl border border-slate-800 bg-slate-900 p-4 transition-colors hover:border-slate-700"
           >
-            <div className="flex items-start gap-4">
-              {/* Icon */}
-              <div
-                className={`flex h-12 w-12 items-center justify-center rounded-xl ${item.color}`}
-              >
-                {item.icon}
-              </div>
+            <div
+              className={`flex h-10 w-10 shrink-0 items-center justify-center rounded-lg border ${item.badgeColor}`}
+            >
+              {item.icon}
+            </div>
 
-              {/* Content */}
-              <div>
-                <h2 className="text-2xl font-bold text-white">{item.value}</h2>
-
-                <h3 className="mt-1 font-semibold text-white">{item.title}</h3>
-
-                <p className="mt-1 text-sm text-slate-400">{item.subtitle}</p>
-              </div>
+            <div>
+              <p className="text-xl font-bold text-white">{item.value}</p>
+              <h3 className="text-xs font-semibold text-slate-300">{item.title}</h3>
+              <p className="text-[11px] text-slate-400">{item.subtitle}</p>
             </div>
           </div>
         ))}

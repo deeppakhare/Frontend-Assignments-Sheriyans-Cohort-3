@@ -1,87 +1,87 @@
 import React, { useContext } from "react";
-import { Star, ShoppingCart } from "lucide-react";
+import { Star, ShoppingCart, Check } from "lucide-react";
 import { useNavigate } from "react-router";
 import { MyStore } from "../context/MyContext";
 import toast from "react-hot-toast";
 
 const ProductCard = ({ product, isInCart }) => {
-  let { cartItems, setCartItems } = useContext(MyStore);
+  const { setCartItems } = useContext(MyStore);
+  const navigate = useNavigate();
 
-  let addToCart = (e) => {
+  const addToCart = (e) => {
     e.stopPropagation();
-    setCartItems((prev) => [...prev, { ...product, quantity: 1 }]);
+    setCartItems((prev) => {
+      const existing = prev.find((item) => item.id === product.id);
+      if (existing) {
+        return prev.map((item) =>
+          item.id === product.id ? { ...item, quantity: item.quantity + 1 } : item
+        );
+      }
+      return [...prev, { ...product, quantity: 1 }];
+    });
     toast.success("Added to cart successfully! 🛍️");
   };
-
-  let navigate = useNavigate();
 
   return (
     <div
       onClick={() => navigate(`/welcome/shop/${product.id}`)}
-      className="group overflow-hidden rounded-3xl border border-slate-800 bg-[#10182D] transition-all duration-300 hover:-translate-y-1 hover:border-cyan-500 hover:shadow-xl hover:shadow-cyan-500/10 cursor-pointer"
+      className="group flex flex-col justify-between overflow-hidden rounded-xl border border-slate-800 bg-slate-900 transition-all hover:border-slate-700 hover:shadow-md cursor-pointer"
     >
-      {/* Top */}
-
-      <div className="relative border-b border-slate-800 p-5">
-        {/* Category */}
-
-        <span className="absolute left-5 top-5 rounded-full bg-cyan-500/10 px-3 py-1 text-xs font-medium capitalize text-cyan-400">
+      {/* Product Image Box */}
+      <div className="relative flex h-52 w-full items-center justify-center bg-white p-4">
+        {/* Category tag */}
+        <span className="absolute left-3 top-3 rounded bg-slate-900/80 px-2 py-0.5 text-[11px] font-medium capitalize text-slate-200 backdrop-blur-xs">
           {product.category}
         </span>
 
         {/* Rating */}
-
-        <div className="absolute right-5 top-5 flex items-center gap-1 text-yellow-400">
-          <Star size={14} fill="currentColor" />
-          <span className="text-xs font-medium text-white">
-            {product.rating.rate}
-          </span>
+        <div className="absolute right-3 top-3 flex items-center gap-1 rounded bg-slate-900/80 px-2 py-0.5 text-[11px] font-semibold text-amber-400 backdrop-blur-xs">
+          <Star size={12} fill="currentColor" />
+          <span>{product.rating?.rate}</span>
         </div>
 
-        {/* Image */}
-
-        <div className="flex h-60 items-center justify-center overflow-hidden">
-          <img
-            src={product.image}
-            alt={product.title}
-            className="h-48 object-contain transition duration-500 group-hover:scale-110"
-          />
-        </div>
+        <img
+          src={product.image}
+          alt={product.title}
+          className="max-h-40 w-auto object-contain transition-transform duration-300 group-hover:scale-105"
+        />
       </div>
 
-      {/* Bottom */}
+      {/* Product Details */}
+      <div className="flex flex-1 flex-col justify-between p-4">
+        <div>
+          <h2 className="line-clamp-2 text-sm font-semibold text-white group-hover:text-blue-400 transition-colors">
+            {product.title}
+          </h2>
+          <p className="mt-1.5 line-clamp-2 text-xs text-slate-400 leading-relaxed">
+            {product.description}
+          </p>
+        </div>
 
-      <div className="space-y-4 p-5">
-        {/* Title */}
-
-        <h2 className="line-clamp-2 text-lg font-semibold text-white">
-          {product.title}
-        </h2>
-
-        {/* Description */}
-
-        <p className="line-clamp-3 text-sm leading-6 text-slate-400">
-          {product.description}
-        </p>
-
-        {/* Price + Button */}
-
-        <div className="flex items-center justify-between">
-          <h3 className="text-3xl font-bold text-cyan-400">${product.price}</h3>
+        {/* Price & Action */}
+        <div className="mt-4 flex items-center justify-between border-t border-slate-800/80 pt-3">
+          <div>
+            <span className="text-xs text-slate-400 block">Price</span>
+            <span className="text-lg font-bold text-white">${product.price}</span>
+          </div>
 
           {isInCart ? (
             <button
-              disabled
-              className="flex cursor-not-allowed items-center gap-2 rounded-full bg-green-500 px-5 py-2 text-sm font-semibold text-white"
+              onClick={(e) => {
+                e.stopPropagation();
+                navigate("/welcome/cart");
+              }}
+              className="flex items-center gap-1.5 rounded-lg bg-emerald-600/20 px-3 py-1.5 text-xs font-semibold text-emerald-400 hover:bg-emerald-600/30 transition-colors"
             >
-              ✓ Added
+              <Check size={14} />
+              In Cart
             </button>
           ) : (
             <button
               onClick={addToCart}
-              className="flex items-center gap-2 rounded-full bg-cyan-500 px-5 py-2 text-sm font-semibold text-black transition hover:bg-cyan-400"
+              className="flex items-center gap-1.5 rounded-lg bg-blue-600 px-3.5 py-1.5 text-xs font-semibold text-white transition-colors hover:bg-blue-500 cursor-pointer"
             >
-              <ShoppingCart size={16} />
+              <ShoppingCart size={14} />
               Add
             </button>
           )}

@@ -1,104 +1,92 @@
 import React, { useContext } from "react";
-import { Laptop, Gem, Shirt, Handbag, ArrowRight } from "lucide-react";
+import { Laptop, Gem, Shirt, ShoppingBag, ArrowRight } from "lucide-react";
 import { useNavigate } from "react-router";
 import { MyStore } from "../context/MyContext";
 
 const ShopByCategory = () => {
-  let naviget = useNavigate();
-  let { selectCategory, setSelectCategory } = useContext(MyStore);
+  const navigate = useNavigate();
+  const { setSelectCategory } = useContext(MyStore);
 
   const categories = [
     {
       id: 1,
       title: "Electronics",
-      description: "Discover premium gadgets and accessories.",
-      icon: <Laptop size={22} />,
-      color: "bg-cyan-500/10 text-cyan-400",
+      description: "Gadgets, audio, and tech accessories.",
+      icon: <Laptop size={20} />,
       value: "electronics",
     },
     {
       id: 2,
-      title: "Jewelery",
-      description: "Elegant collections for every occasion.",
-      icon: <Gem size={22} />,
-      color: "bg-yellow-500/10 text-yellow-400",
+      title: "Jewelry",
+      description: "Rings, necklaces, and fine accessories.",
+      icon: <Gem size={20} />,
       value: "jewelery",
     },
     {
       id: 3,
       title: "Men's Clothing",
-      description: "Premium fashion for everyday style.",
-      icon: <Shirt size={22} />,
-      color: "bg-indigo-500/10 text-indigo-400",
+      description: "Jackets, shirts, and casual wear.",
+      icon: <Shirt size={20} />,
       value: "men's clothing",
     },
     {
       id: 4,
       title: "Women's Clothing",
-      description: "Trending outfits and latest collections.",
-      icon: <Handbag size={22} />,
-      color: "bg-pink-500/10 text-pink-400",
+      description: "Coats, tops, and stylish apparel.",
+      icon: <ShoppingBag size={20} />,
       value: "women's clothing",
     },
   ];
 
   return (
-    <section className="my-8 rounded-3xl border border-slate-800 bg-[#10182D] p-6 lg:p-8">
+    <section className="my-8 rounded-2xl border border-slate-800 bg-slate-900 p-6 md:p-8">
       {/* Header */}
-
-      <div className="mb-8 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+      <div className="mb-6 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
         <div>
-          <p className="mb-2 text-xs font-semibold uppercase tracking-[0.3em] text-cyan-400">
-            Categories
-          </p>
-
-          <h2 className="text-3xl font-bold text-white">Shop by Category</h2>
+          <span className="text-xs font-semibold uppercase tracking-wider text-blue-400">
+            Browse Collection
+          </span>
+          <h2 className="text-2xl font-bold tracking-tight text-white">Shop by Category</h2>
         </div>
 
         <button
-          onClick={() => naviget("/welcome/shop")}
-          className="rounded-xl border border-slate-700 bg-[#1A2238] px-5 py-2 text-sm text-slate-300 transition hover:border-cyan-500 hover:text-cyan-400 cursor-pointer"
+          onClick={() => {
+            setSelectCategory("all");
+            navigate("/welcome/shop");
+          }}
+          className="w-fit rounded-lg border border-slate-700 bg-slate-800 px-4 py-2 text-xs font-medium text-slate-200 transition-colors hover:bg-slate-700 hover:text-white cursor-pointer"
         >
-          Browse All
+          View All Products
         </button>
       </div>
 
-      {/* Cards */}
-
-      <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 xl:grid-cols-4">
+      {/* Grid */}
+      <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
         {categories.map((item) => (
           <div
+            key={item.id}
             onClick={() => {
               setSelectCategory(item.value);
-              naviget("/welcome/shop");
+              navigate("/welcome/shop");
             }}
-            key={item.id}
-            className="group rounded-2xl border border-slate-700 bg-[#151D31] p-5 transition-all duration-300 hover:-translate-y-1 hover:border-cyan-500 cursor-pointer"
+            className="group flex flex-col justify-between rounded-xl border border-slate-800 bg-slate-950/60 p-5 transition-all hover:border-blue-500/50 hover:bg-slate-950 cursor-pointer"
           >
-            {/* Icon */}
-
-            <div
-              className={`mb-6 flex h-14 w-14 items-center justify-center rounded-2xl ${item.color}`}
-            >
-              {item.icon}
+            <div>
+              <div className="mb-4 flex h-10 w-10 items-center justify-center rounded-lg bg-blue-600/10 text-blue-400">
+                {item.icon}
+              </div>
+              <h3 className="text-base font-bold text-white group-hover:text-blue-400 transition-colors">
+                {item.title}
+              </h3>
+              <p className="mt-2 text-xs leading-relaxed text-slate-400">
+                {item.description}
+              </p>
             </div>
 
-            {/* Title */}
-
-            <h3 className="text-xl font-semibold text-white">{item.title}</h3>
-
-            {/* Description */}
-
-            <p className="mt-3 text-sm leading-6 text-slate-400">
-              {item.description}
-            </p>
-
-            {/* Button */}
-
-            <button className="mt-6 flex items-center gap-2 text-sm font-medium text-cyan-400 transition group-hover:gap-3">
-              Explore
-              <ArrowRight size={16} />
-            </button>
+            <div className="mt-5 flex items-center gap-1.5 text-xs font-semibold text-blue-400">
+              <span>Explore</span>
+              <ArrowRight size={14} className="transition-transform group-hover:translate-x-1" />
+            </div>
           </div>
         ))}
       </div>

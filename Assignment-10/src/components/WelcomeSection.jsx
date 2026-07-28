@@ -1,75 +1,66 @@
 import React, { useContext } from "react";
-import { ArrowRight, ShoppingBag } from "lucide-react";
+import { ArrowRight, ShoppingBag, Truck } from "lucide-react";
 import { useNavigate } from "react-router";
 import { MyStore } from "../context/MyContext";
 
 const WelcomeSection = () => {
-  let naviget = useNavigate()
+  const navigate = useNavigate();
+  const { currentUser } = useContext(MyStore);
 
-    let { currentUser } = useContext(MyStore);
-  
+  const username = currentUser?.username ? currentUser.username : "Guest";
 
   return (
     <section className="mb-8">
-      <div className="grid grid-cols-1 gap-6 rounded-3xl border border-slate-800 bg-[#10182D] p-6 shadow-lg lg:grid-cols-3 lg:p-8">
-        {/* Left */}
+      <div className="grid grid-cols-1 gap-6 rounded-2xl border border-slate-800 bg-slate-900 p-6 md:p-8 lg:grid-cols-3">
+        {/* Main Banner Text */}
         <div className="lg:col-span-2 flex flex-col justify-center">
-          <span className="mb-5 w-fit rounded-full border border-cyan-500/30 bg-cyan-500/10 px-4 py-2 text-xs font-medium text-cyan-300">
-            👋 Fresh Deals are waiting
-          </span>
+          <div className="mb-3 inline-flex w-fit items-center rounded-md bg-blue-500/10 px-3 py-1 text-xs font-medium text-blue-400">
+            Welcome to SkyMart
+          </div>
 
-          <h1 className="text-4xl font-bold leading-tight text-white lg:text-5xl">
-            Welcome Back,
-            <span className="text-cyan-400">
-              {" "}
-              {currentUser.username.toUpperCase()}!
-            </span>
+          <h1 className="text-3xl font-bold tracking-tight text-white sm:text-4xl">
+            Welcome back,{" "}
+            <span className="text-blue-400 capitalize">{username}</span>!
           </h1>
 
-          <p className="mt-5 max-w-xl text-slate-400 leading-7">
-            Discover today's hand-picked collection across electronics, fashion,
-            accessories and premium essentials.
+          <p className="mt-3 max-w-xl text-sm leading-relaxed text-slate-300">
+            Explore our latest collection of quality products with fast delivery and seamless checkout.
           </p>
 
-          <div className="mt-8 flex flex-wrap gap-4">
+          <div className="mt-6 flex flex-wrap gap-3">
             <button
-              onClick={() => naviget("/welcome/shop")}
-              className="rounded-xl bg-cyan-500 px-6 py-3 font-semibold text-black transition hover:bg-cyan-400 cursor-pointer"
+              onClick={() => navigate("/welcome/shop")}
+              className="flex items-center gap-2 rounded-lg bg-blue-600 px-5 py-2.5 text-sm font-semibold text-white transition-colors hover:bg-blue-500 cursor-pointer"
             >
-              Shop Now
+              Shop Catalog
+              <ArrowRight size={16} />
             </button>
 
             <button
-              onClick={() => naviget("/welcome/shop")}
-              className="flex items-center gap-2 rounded-xl border border-slate-700 bg-[#1A2238] px-6 py-3 font-medium text-white transition hover:border-cyan-500 cursor-pointer"
+              onClick={() => navigate("/welcome/about")}
+              className="rounded-lg border border-slate-700 bg-slate-800 px-5 py-2.5 text-sm font-medium text-slate-200 transition-colors hover:bg-slate-700 hover:text-white cursor-pointer"
             >
-              View Products
-              <ArrowRight size={18} />
+              Learn More
             </button>
           </div>
         </div>
 
-        {/* Right */}
-
+        {/* Quick Highlights */}
         <div className="grid grid-cols-2 gap-4">
-          <div className="rounded-2xl border border-slate-700 bg-[#1A2238] p-5 transition hover:border-cyan-500 flex flex-col items-center justify-center">
-            <div className="mb-8 flex h-12 w-12 items-center justify-center rounded-xl bg-cyan-500/10">
-              <ShoppingBag size={24} className="text-cyan-400" />
+          <div className="flex flex-col items-center justify-center rounded-xl border border-slate-800 bg-slate-950/60 p-5 text-center">
+            <div className="mb-3 flex h-10 w-10 items-center justify-center rounded-lg bg-blue-600/10 text-blue-400">
+              <ShoppingBag size={20} />
             </div>
-
-            <h2 className="text-3xl font-bold text-white">20+</h2>
-
-            <p className="mt-2 text-sm text-slate-400">Products Available</p>
+            <span className="text-2xl font-bold text-white">20+</span>
+            <span className="mt-1 text-xs text-slate-400">Products</span>
           </div>
 
-          <div className="rounded-2xl border border-slate-700 bg-[#1A2238] p-5 transition hover:border-cyan-500 flex flex-col items-center justify-center">
-            <div className="mb-8 flex h-12 w-12 items-center justify-center rounded-xl bg-green-500/10">
-              🚚
+          <div className="flex flex-col items-center justify-center rounded-xl border border-slate-800 bg-slate-950/60 p-5 text-center">
+            <div className="mb-3 flex h-10 w-10 items-center justify-center rounded-lg bg-emerald-600/10 text-emerald-400">
+              <Truck size={20} />
             </div>
-
-            <h2 className="text-3xl font-bold text-white">Free</h2>
-
-            <p className="mt-2 text-sm text-slate-400">Delivery</p>
+            <span className="text-2xl font-bold text-white">Free</span>
+            <span className="mt-1 text-xs text-slate-400">Shipping</span>
           </div>
         </div>
       </div>
