@@ -1,17 +1,61 @@
-*{
+/* Reset basic margins and center everything */
+body {
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
-}
-
-body{
-    background-color: black;
-}
-
-div{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f4f6f8;
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 200px;
-    width: 200px;
+    height: 100vh;
+    color: #333;
+}
+
+/* Main card styling */
+.error-container {
+    text-align: center;
+    background: white;
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    max-width: 400px;
+    width: 90%;
+}
+
+/* Big error number */
+.error-code {
+    font-size: 4rem;
+    margin: 0;
+    color: #e74c3c; /* Red for error */
+    line-height: 1;
+}
+
+/* Title */
+.error-title {
+    margin: 10px 0 20px 0;
+    font-size: 1.5rem;
+    color: #2c3e50;
+}
+
+/* Descriptive text */
+.error-message {
+    color: #666;
+    line-height: 1.6;
+    margin-bottom: 30px;
+}
+
+/* Button styling */
+.retry-btn {
+    background-color: #3498db;
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    font-size: 1rem;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.retry-btn:hover {
+    background-color: #2980b9;
 }

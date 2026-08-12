@@ -3,14 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Something Went Wrong</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div>
-
-        <h1>Soory there are some issue</h1>
-        <p>We will right back</p>
+    <div class="error-container">
+        <h1 class="error-code">503</h1>
+        <h2 class="error-title">Service Unavailable</h2>
+        <p class="error-message">
+            Oops! Our servers are taking a quick break. 
+            The website is currently unable to handle your request.
+        </p>
+        <button onclick="window.location.reload();" class="retry-btn">Try Again</button>
     </div>
 </body>
 </html>
