@@ -22,7 +22,7 @@ import { Button } from "@/components/Button/Button";
     {
       prop: "variant",
       type: '"primary" | "glass" | "light" | "dark"',
-      default: '"dark"',
+      default: '"light"',
       description: "The visual style variant of the navbar",
     },
     {

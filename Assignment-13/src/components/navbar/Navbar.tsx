@@ -9,7 +9,7 @@ import gsap from "gsap";
 import { Button } from "../Button";
 
 const navbarVariants = cva(
-  `w-full flex items-center justify-between px-6 py-4 rounded-md border border-gray-200 transition-all`,
+  `w-full flex items-center justify-between px-6 py-4 rounded-md border border-gray-500 transition-all`,
   {
     variants: {
       variant: {
@@ -26,7 +26,7 @@ const navbarVariants = cva(
       },
     },
     defaultVariants: {
-      variant: "dark",
+      variant: "light",
       size: "default",
     },
   }
