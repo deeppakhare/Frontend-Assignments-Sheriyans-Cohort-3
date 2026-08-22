@@ -29,11 +29,12 @@ const navbarVariants = cva(
       variant: "light",
       size: "default",
     },
-  }
+  },
 );
 
 interface NavbarProps
-  extends React.HTMLAttributes<HTMLElement>,
+  extends
+    React.HTMLAttributes<HTMLElement>,
     VariantProps<typeof navbarVariants> {
   asChild?: boolean;
   animation?: keyof typeof entranceAnimations;
@@ -51,7 +52,7 @@ const Navbar = forwardRef<HTMLElement, NavbarProps>(
       hoverAnimation = "none",
       ...props
     },
-    ref
+    ref,
   ) => {
     const Comp = asChild ? Slot : "nav";
     const navbarRef = useRef<HTMLElement | null>(null);
@@ -89,16 +90,16 @@ const Navbar = forwardRef<HTMLElement, NavbarProps>(
       >
         <h1>Logo</h1>
         <div className="flex gap-5">
-          <a href="">Home</a>
-          <a href="">About</a>
-          <a href="">Customer</a>
+          <a>Home</a>
+          <a>About</a>
+          <a>Customer</a>
         </div>
         <div>
           <Button hoverAnimation="none">Profile</Button>
         </div>
       </Comp>
     );
-  }
+  },
 );
 
 Navbar.displayName = "Navbar";

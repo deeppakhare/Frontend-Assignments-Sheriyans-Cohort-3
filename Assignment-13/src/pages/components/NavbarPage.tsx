@@ -6,7 +6,7 @@ import PropsTable from "@/components/Personal/PropsTable";
 const NavbarPage = () => {
   const usageCode = `import { Navbar } from "@/components/Navbar/Navbar";
 import { Button } from "@/components/Button/Button";
-  <Navbar>
+  <Navbar varient:"light" size:"default" animation:"fadeIn" hoverAnimation:"none">
     <h1>Logo</h1>
     <div className="flex gap-5">
       <a href="">Home</a>
