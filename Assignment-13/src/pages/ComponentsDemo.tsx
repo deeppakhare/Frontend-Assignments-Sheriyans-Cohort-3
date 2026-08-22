@@ -12,7 +12,7 @@ const ComponentDemo = ({ children, code }: ComponentDemoProps) => {
   const [isCodeVisible, setIsCodeVisible] = useState(false);
 
   return (
-    <div className="border border-gray-200 rounded-lg overflow-hidden shadow-sm bg-gray-200">
+    <div className="border border-gray-200 rounded-lg overflow-hidden shadow-sm ">
       <div className="flex items-center justify-between px-4 py-2 border-b border-gray-200 bg-gray-50">
         <span className="text-sm font-medium text-gray-700">Preview</span>
         <button

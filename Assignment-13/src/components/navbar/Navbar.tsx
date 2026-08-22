@@ -26,7 +26,7 @@ const navbarVariants = cva(
       },
     },
     defaultVariants: {
-      variant: "light",
+      variant: "dark",
       size: "default",
     },
   }
