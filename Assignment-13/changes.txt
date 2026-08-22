@@ -1,2 +1,2 @@
 1. Completing Navbar section page
-2. 
+2. Completing ToolTip section page 
