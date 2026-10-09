@@ -1,9 +1,22 @@
+const app = require("./app/app");
+const config = require("./config/config");
+const connectDB = require("./config/db");
 
-const app = require("./src/app");
+// Connect to MongoDB & Start Server
+const startServer = async () => {
+  await connectDB();
 
-let portNo = process.env.port || 3000;
+  const server = app.listen(config.port, () => {
+    console.log(`=================================================`);
+    console.log(`🚀 Server running in [${config.nodeEnv}] mode`);
+    console.log(`🌐 Server URL: http://localhost:${config.port}`);
+    console.log(`=================================================`);
+  });
 
-app.listen(portNo, () => {
-  console.log(`Server is running on port ${portNo}`);
-});
+  // Handle unhandled promise rejections
+  process.on("unhandledRejection", (err) => {
+    console.error("[Unhandled Rejection Error]:", err.message);
+  });
+};
 
+startServer();
