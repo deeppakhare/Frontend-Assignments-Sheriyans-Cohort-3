@@ -1,4 +1,22 @@
+const express = require("express");
+const path = require("path");
+const cookieParser = require("cookie-parser");
+const cors = require("cors");
 
+const authRoutes = require("../routes/auth.routes");
+const productRoutes = require("../routes/product.routes");
+
+const app = express();
+
+// Middlewares
+app.use(cors({
+  origin: true,
+  credentials: true
+}));
+
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+app.use(cookieParser());
 
 // Serve Frontend Static Files
 app.use(express.static(path.join(__dirname, "../../public")));
